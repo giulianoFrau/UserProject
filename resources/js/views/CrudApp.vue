@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="row justify-content-center">
-      <div class="col-md-8">
+      <div class="col-md-6">
         <div class="card">
           <div class="card-header">Create new user</div>
 
@@ -49,8 +49,38 @@
               >
                 Submit
               </button>
-            
             </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header">All user</div>
+
+          <div class="card-body">
+            <table class="table table-dark">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Email</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="(user,index) in users.data" :key="user.id">
+                  <th scope="row">{{index+1}}</th>
+                  <td>{{user.name}}</td>
+                  <td>{{user.email}}</td>
+                  <td>edit | delete</td>
+                </tr>
+              </tbody>
+            </table>
+            <pagination
+              :data="users"
+              @pagination-change-page="getResults"
+            ></pagination>
           </div>
         </div>
       </div>
@@ -62,13 +92,14 @@
 export default {
   data() {
     return {
+      users:{}, 
       name: "",
       email: "",
       password: "",
     };
   },
   mounted() {
-    console.log("Component mounted.");
+    this.getResults();
   },
   methods: {
     saveUser() {
@@ -78,7 +109,18 @@ export default {
           email: this.email,
           password: this.password,
         })
-        .then((response) => console.log(response));
+        .then((response) => {
+          this.name = "";
+          this.email = "";
+          this.password = "";
+            this.getResults();
+        });
+    },
+    getResults(page = 1) {
+      axios.get('all_users?page=' + page).then((response) => {
+        console.log(response.data);
+        this.users = response.data;
+      });
     },
   },
 };

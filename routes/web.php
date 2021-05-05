@@ -24,3 +24,4 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::post('save_user',[UserController::class,'save_user']);
+Route::get('all_users',[UserController::class,'all_users']);

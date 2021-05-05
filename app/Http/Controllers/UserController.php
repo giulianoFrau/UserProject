@@ -15,4 +15,11 @@ class UserController extends Controller
         $user->save();
         return redirect('/');
     }
+
+
+public function all_users(){
+    $users=User::paginate(5);
+    return response()->json($users); 
+}
+
 }
