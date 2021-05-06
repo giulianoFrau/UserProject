@@ -3,7 +3,7 @@
     <div class="row justify-content-center">
       <div class="col-md-6">
         <div class="card border shadow">
-          <div class="card-header">Create new user</div>
+          <div class="card-header">Inserisci un nuovo Utente : </div>
 
           <div class="card-body">
             <form>
@@ -15,39 +15,37 @@
                   v-model="name"
                   id="exampleInputEmail1"
                   aria-describedby="emailHelp"
-                  placeholder="Enter name"
+                  placeholder="Inserisci un nome per il tuo account"
                 />
-                <small id="emailHelp" class="form-text text-muted"
-                  >We'll never share your email with anyone elsdsddse.</small
-                >
+               
               </div>
               <div class="form-group">
-                <label for="exampleInputPassword1">email</label>
+                <label for="exampleInputPassword1">Email</label>
                 <input
                   type="text"
                   class="form-control"
                   v-model="email"
                   id="exampleInputPassword1"
-                  placeholder="email"
+                  placeholder="Inserisci la tua email"
                 />
               </div>
               <div class="form-group">
-                <label for="exampleInputPassword1">password</label>
+                <label for="exampleInputPassword1">Password</label>
                 <input
                   type="text"
                   class="form-control"
                   v-model="password"
                   id="exampleInputPassword1"
-                  placeholder="password"
+                  placeholder="Inserisci la tua Password"
                 />
               </div>
 
               <button
                 type="submit"
                 @click.prevent="saveUser"
-                class="btn btn-primary"
+                class="btn btn-outline-success"
               >
-                Submit
+                Registrati
               </button>
             </form>
           </div>
@@ -56,13 +54,13 @@
 
       <div class="col-md-6">
         <div class="card border shadow">
-          <div class="card-header">Lista Utenti</div>
+          <div class="card-header">Lista Utenti :</div>
 
           <div class="card-body">
             <table class="table table-dark">
               <thead>
                 <tr>
-                  <th scope="col">id</th>
+                  <th scope="col">#</th>
                   <th scope="col">Nome</th>
                   <th scope="col">Email</th>
                  <th scope="col">Modifica</th>
@@ -70,14 +68,14 @@
                 </tr>
               </thead>
               <tbody>
-                <tr v-for="(user) in users.data" :key="user.id">
-                  <th scope="row">{{ user.id }}</th>
+                <tr v-for="(user,index) in users.data" :key="user.id">
+                  <th scope="row">{{ index+1 }}</th>
                   <td>{{ user.name }}</td>
                   <td>{{ user.email }}</td>
                   <td>
                     <button
                       type="button"
-                      class="btn btn-primary"
+                      class="btn btn-outline-primary"
                       @click="editUser(user.id)"
                       data-toggle="modal"
                       data-target="#exampleModal"
@@ -89,7 +87,7 @@
 <td>
                      <button
                       type="button"
-                      class="btn btn-danger"
+                      class="btn btn-outline-danger"
                       @click="deleteUser(user.id)"
                      
                     >
@@ -120,7 +118,7 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+            <h5 class="modal-title" id="exampleModalLabel">Modifica</h5>
             <button
               type="button"
               class="close"
@@ -142,12 +140,10 @@
                   aria-describedby="emailHelp"
                   placeholder="Enter name"
                 />
-                <small id="emailHelp" class="form-text text-muted"
-                  >We'll never share your email with anyone elsdsddse.</small
-                >
+                
               </div>
               <div class="form-group">
-                <label for="exampleInputPassword1">email</label>
+                <label for="exampleInputPassword1">Email</label>
                 <input
                   type="text"
                   class="form-control"
@@ -160,13 +156,13 @@
               <button
                 type="submit"
                 @click.prevent="updateUser"
-                class="btn btn-primary"
+                class="btn btn-outline-primary"
                 data-dismiss="modal"
               >
-                Submit
+                Conferma Modifica
               </button>
-              <button type="button" class="btn btn-danger" data-dismiss="modal">
-                Close
+              <button type="button" class="btn btn-outline-danger" data-dismiss="modal">
+                Chiudi Finestra
               </button>
             </form>
           </div>

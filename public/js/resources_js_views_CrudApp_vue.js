@@ -186,10 +186,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -355,7 +351,7 @@ var render = function() {
       _c("div", { staticClass: "col-md-6" }, [
         _c("div", { staticClass: "card border shadow" }, [
           _c("div", { staticClass: "card-header" }, [
-            _vm._v("Create new user")
+            _vm._v("Inserisci un nuovo Utente : ")
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "card-body" }, [
@@ -379,7 +375,7 @@ var render = function() {
                     type: "text",
                     id: "exampleInputEmail1",
                     "aria-describedby": "emailHelp",
-                    placeholder: "Enter name"
+                    placeholder: "Inserisci un nome per il tuo account"
                   },
                   domProps: { value: _vm.name },
                   on: {
@@ -390,25 +386,12 @@ var render = function() {
                       _vm.name = $event.target.value
                     }
                   }
-                }),
-                _vm._v(" "),
-                _c(
-                  "small",
-                  {
-                    staticClass: "form-text text-muted",
-                    attrs: { id: "emailHelp" }
-                  },
-                  [
-                    _vm._v(
-                      "We'll never share your email with anyone elsdsddse."
-                    )
-                  ]
-                )
+                })
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "form-group" }, [
                 _c("label", { attrs: { for: "exampleInputPassword1" } }, [
-                  _vm._v("email")
+                  _vm._v("Email")
                 ]),
                 _vm._v(" "),
                 _c("input", {
@@ -424,7 +407,7 @@ var render = function() {
                   attrs: {
                     type: "text",
                     id: "exampleInputPassword1",
-                    placeholder: "email"
+                    placeholder: "Inserisci la tua email"
                   },
                   domProps: { value: _vm.email },
                   on: {
@@ -440,7 +423,7 @@ var render = function() {
               _vm._v(" "),
               _c("div", { staticClass: "form-group" }, [
                 _c("label", { attrs: { for: "exampleInputPassword1" } }, [
-                  _vm._v("password")
+                  _vm._v("Password")
                 ]),
                 _vm._v(" "),
                 _c("input", {
@@ -456,7 +439,7 @@ var render = function() {
                   attrs: {
                     type: "text",
                     id: "exampleInputPassword1",
-                    placeholder: "password"
+                    placeholder: "Inserisci la tua Password"
                   },
                   domProps: { value: _vm.password },
                   on: {
@@ -473,7 +456,7 @@ var render = function() {
               _c(
                 "button",
                 {
-                  staticClass: "btn btn-primary",
+                  staticClass: "btn btn-outline-success",
                   attrs: { type: "submit" },
                   on: {
                     click: function($event) {
@@ -482,7 +465,7 @@ var render = function() {
                     }
                   }
                 },
-                [_vm._v("\n                Submit\n              ")]
+                [_vm._v("\n                Registrati\n              ")]
               )
             ])
           ])
@@ -491,7 +474,7 @@ var render = function() {
       _vm._v(" "),
       _c("div", { staticClass: "col-md-6" }, [
         _c("div", { staticClass: "card border shadow" }, [
-          _c("div", { staticClass: "card-header" }, [_vm._v("Lista Utenti")]),
+          _c("div", { staticClass: "card-header" }, [_vm._v("Lista Utenti :")]),
           _vm._v(" "),
           _c(
             "div",
@@ -502,10 +485,10 @@ var render = function() {
                 _vm._v(" "),
                 _c(
                   "tbody",
-                  _vm._l(_vm.users.data, function(user) {
+                  _vm._l(_vm.users.data, function(user, index) {
                     return _c("tr", { key: user.id }, [
                       _c("th", { attrs: { scope: "row" } }, [
-                        _vm._v(_vm._s(user.id))
+                        _vm._v(_vm._s(index + 1))
                       ]),
                       _vm._v(" "),
                       _c("td", [_vm._v(_vm._s(user.name))]),
@@ -516,7 +499,7 @@ var render = function() {
                         _c(
                           "button",
                           {
-                            staticClass: "btn btn-primary",
+                            staticClass: "btn btn-outline-primary",
                             attrs: {
                               type: "button",
                               "data-toggle": "modal",
@@ -540,7 +523,7 @@ var render = function() {
                         _c(
                           "button",
                           {
-                            staticClass: "btn btn-danger",
+                            staticClass: "btn btn-outline-danger",
                             attrs: { type: "button" },
                             on: {
                               click: function($event) {
@@ -624,25 +607,12 @@ var render = function() {
                           _vm.editname = $event.target.value
                         }
                       }
-                    }),
-                    _vm._v(" "),
-                    _c(
-                      "small",
-                      {
-                        staticClass: "form-text text-muted",
-                        attrs: { id: "emailHelp" }
-                      },
-                      [
-                        _vm._v(
-                          "We'll never share your email with anyone elsdsddse."
-                        )
-                      ]
-                    )
+                    })
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "form-group" }, [
                     _c("label", { attrs: { for: "exampleInputPassword1" } }, [
-                      _vm._v("email")
+                      _vm._v("Email")
                     ]),
                     _vm._v(" "),
                     _c("input", {
@@ -675,7 +645,7 @@ var render = function() {
                   _c(
                     "button",
                     {
-                      staticClass: "btn btn-primary",
+                      staticClass: "btn btn-outline-primary",
                       attrs: { type: "submit", "data-dismiss": "modal" },
                       on: {
                         click: function($event) {
@@ -684,16 +654,24 @@ var render = function() {
                         }
                       }
                     },
-                    [_vm._v("\n                Submit\n              ")]
+                    [
+                      _vm._v(
+                        "\n                Conferma Modifica\n              "
+                      )
+                    ]
                   ),
                   _vm._v(" "),
                   _c(
                     "button",
                     {
-                      staticClass: "btn btn-danger",
+                      staticClass: "btn btn-outline-danger",
                       attrs: { type: "button", "data-dismiss": "modal" }
                     },
-                    [_vm._v("\n                Close\n              ")]
+                    [
+                      _vm._v(
+                        "\n                Chiudi Finestra\n              "
+                      )
+                    ]
                   )
                 ])
               ]),
@@ -713,7 +691,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", [
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("id")]),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("#")]),
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Nome")]),
         _vm._v(" "),
@@ -733,7 +711,7 @@ var staticRenderFns = [
       _c(
         "h5",
         { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
-        [_vm._v("Modal title")]
+        [_vm._v("Modifica")]
       ),
       _vm._v(" "),
       _c(
