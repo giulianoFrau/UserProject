@@ -188,21 +188,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
       users: {},
+      id: "",
       name: "",
       email: "",
       password: "",
       editname: "",
-      editemail: "",
-      editpassword: ""
+      editemail: ""
     };
   },
   mounted: function mounted() {
@@ -236,11 +231,26 @@ __webpack_require__.r(__webpack_exports__);
     editUser: function editUser(id) {
       var _this3 = this;
 
-      axios.get('edit_user/' + id).then(function (response) {
-        console.log(response);
+      axios.get("edit_user/" + id).then(function (response) {
+        _this3.id = response.data.id;
         _this3.editname = response.data.name;
         _this3.editemail = response.data.email;
-        _this3.editpassword = response.data.password;
+      });
+    },
+    updateUser: function updateUser() {
+      var _this4 = this;
+
+      axios.put("update_user", {
+        id: this.id,
+        name: this.editname,
+        email: this.editemail
+      }).then(function (response) {
+        _this4.getResults();
+      });
+    },
+    deleteUser: function deleteUser(id) {
+      axios["delete"]("delete_user/" + id).then(function (response) {
+        return console.log(response);
       });
     }
   }
@@ -488,10 +498,10 @@ var render = function() {
                 _vm._v(" "),
                 _c(
                   "tbody",
-                  _vm._l(_vm.users.data, function(user, index) {
+                  _vm._l(_vm.users.data, function(user) {
                     return _c("tr", { key: user.id }, [
                       _c("th", { attrs: { scope: "row" } }, [
-                        _vm._v(_vm._s(index + 1))
+                        _vm._v(_vm._s(user.id))
                       ]),
                       _vm._v(" "),
                       _c("td", [_vm._v(_vm._s(user.name))]),
@@ -517,6 +527,24 @@ var render = function() {
                           [
                             _vm._v(
                               "\n                    Edit\n                  "
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-danger",
+                            attrs: { type: "button" },
+                            on: {
+                              click: function($event) {
+                                return _vm.deleteUser(user.id)
+                              }
+                            }
+                          },
+                          [
+                            _vm._v(
+                              "\n                    Delete\n                  "
                             )
                           ]
                         )
@@ -638,56 +666,33 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "form-group" }, [
-                    _c("label", { attrs: { for: "exampleInputPassword1" } }, [
-                      _vm._v("password")
-                    ]),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.editpassword,
-                          expression: "editpassword"
-                        }
-                      ],
-                      staticClass: "form-control",
-                      attrs: {
-                        type: "text",
-                        id: "exampleInputPassword1",
-                        placeholder: "password"
-                      },
-                      domProps: { value: _vm.editpassword },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.editpassword = $event.target.value
-                        }
-                      }
-                    })
-                  ]),
-                  _vm._v(" "),
                   _c(
                     "button",
                     {
                       staticClass: "btn btn-primary",
-                      attrs: { type: "submit" },
+                      attrs: { type: "submit", "data-dismiss": "modal" },
                       on: {
                         click: function($event) {
                           $event.preventDefault()
-                          return _vm.saveUser($event)
+                          return _vm.updateUser($event)
                         }
                       }
                     },
                     [_vm._v("\n              Submit\n            ")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-danger",
+                      attrs: { type: "button", "data-dismiss": "modal" }
+                    },
+                    [_vm._v("\n              Close\n            ")]
                   )
                 ])
               ]),
               _vm._v(" "),
-              _vm._m(2)
+              _c("div", { staticClass: "modal-footer" })
             ])
           ]
         )
@@ -734,27 +739,6 @@ var staticRenderFns = [
           }
         },
         [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "modal-footer" }, [
-      _c(
-        "button",
-        {
-          staticClass: "btn btn-secondary",
-          attrs: { type: "button", "data-dismiss": "modal" }
-        },
-        [_vm._v("\n            Close\n          ")]
-      ),
-      _vm._v(" "),
-      _c(
-        "button",
-        { staticClass: "btn btn-primary", attrs: { type: "button" } },
-        [_vm._v("Save changes")]
       )
     ])
   }

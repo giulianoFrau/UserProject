@@ -69,8 +69,8 @@
                 </tr>
               </thead>
               <tbody>
-                <tr v-for="(user, index) in users.data" :key="user.id">
-                  <th scope="row">{{ index + 1 }}</th>
+                <tr v-for="(user) in users.data" :key="user.id">
+                  <th scope="row">{{ user.id }}</th>
                   <td>{{ user.name }}</td>
                   <td>{{ user.email }}</td>
                   <td>
@@ -82,6 +82,16 @@
                       data-target="#exampleModal"
                     >
                       Edit
+                    </button>
+
+
+                     <button
+                      type="button"
+                      class="btn btn-danger"
+                      @click="deleteUser(user.id)"
+                     
+                    >
+                      Delete
                     </button>
                   </td>
                 </tr>
@@ -119,7 +129,7 @@
             </button>
           </div>
           <div class="modal-body">
-             <form>
+            <form>
               <div class="form-group">
                 <label for="exampleInputEmail1">Nome</label>
                 <input
@@ -144,36 +154,21 @@
                   placeholder="email"
                 />
               </div>
-              <div class="form-group">
-                <label for="exampleInputPassword1">password</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  v-model="editpassword"
-                  id="exampleInputPassword1"
-                  placeholder="password"
-                />
-              </div>
 
               <button
                 type="submit"
-                @click.prevent="saveUser"
+                @click.prevent="updateUser"
                 class="btn btn-primary"
+                data-dismiss="modal"
               >
                 Submit
               </button>
+              <button type="button" class="btn btn-danger" data-dismiss="modal">
+                Close
+              </button>
             </form>
           </div>
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-dismiss="modal"
-            >
-              Close
-            </button>
-            <button type="button" class="btn btn-primary">Save changes</button>
-          </div>
+          <div class="modal-footer"></div>
         </div>
       </div>
     </div>
@@ -185,13 +180,14 @@ export default {
   data() {
     return {
       users: {},
+      id: "",
       name: "",
       email: "",
       password: "",
       editname: "",
       editemail: "",
-      editpassword:""
-    };
+      
+      };
   },
   mounted() {
     this.getResults();
@@ -211,6 +207,7 @@ export default {
           this.getResults();
         });
     },
+
     getResults(page = 1) {
       axios.get("all_users?page=" + page).then((response) => {
         console.log(response.data);
@@ -218,18 +215,33 @@ export default {
       });
     },
 
-    editUser(id){
-        axios.get('edit_user/'+id)
-        .then(response => {
-          console.log(response);
-          this.editname=response.data.name;
-          this.editemail=response.data.email;
-          this.editpassword=response.data.password;
+    editUser(id) {
+      axios.get("edit_user/" + id).then((response) => {
+        this.id = response.data.id;
+        this.editname = response.data.name;
+        this.editemail = response.data.email;
+   
+      });
+    },
+
+    updateUser() {
+      axios
+        .put("update_user", {
+          id: this.id,
+          name: this.editname,
+          email: this.editemail,
+        })
+        .then((response) => {
+          this.getResults();
         });
+    },
 
+    deleteUser(id){
+    axios.delete("delete_user/" + id)
+    .then(response =>console.log(response));
+    
+    
     }
-
-
   },
 };
 </script>

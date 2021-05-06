@@ -23,6 +23,8 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::post('save_user',[UserController::class,'save_user']);
-Route::get('all_users',[UserController::class,'all_users']);
-Route::get('edit_user/{id}',[UserController::class,'edit_user']);
+Route::post('save_user', [UserController::class, 'save_user']);
+Route::get('all_users', [UserController::class, 'all_users']);
+Route::get('edit_user/{id}', [UserController::class, 'edit_user']);
+Route::put('update_user', [UserController::class, 'update_user']);
+Route::delete('delete_user/{id}', [UserController::class, 'delete_user']);
