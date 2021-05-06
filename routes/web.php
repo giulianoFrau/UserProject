@@ -25,3 +25,4 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::post('save_user',[UserController::class,'save_user']);
 Route::get('all_users',[UserController::class,'all_users']);
+Route::get('edit_user/{id}',[UserController::class,'edit_user']);

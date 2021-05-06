@@ -22,4 +22,10 @@ public function all_users(){
     return response()->json($users); 
 }
 
+
+public function edit_user($id){
+    $user=User::find($id);
+    return response()->json($user);
+}
+
 }
