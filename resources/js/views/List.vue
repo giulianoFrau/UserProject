@@ -1,69 +1,20 @@
 <template>
   <div class="container">
     <div class="row justify-content-center">
-      <div class="col-md-6">
+      
+
+      <div class="col-md-12">
         <div class="card border shadow">
-          <div class="card-header">Inserisci un nuovo Utente :</div>
-
-          <div class="card-body">
-            <form>
-              <div class="form-group">
-                <label for="exampleInputEmail1">Nome</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  v-model="name"
-                  id="exampleInputEmail1"
-                  aria-describedby="emailHelp"
-                  placeholder="Inserisci un nome per il tuo account"
-                />
-              </div>
-              <div class="form-group">
-                <label for="exampleInputPassword1">Email</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  v-model="email"
-                  id="exampleInputPassword1"
-                  placeholder="Inserisci la tua email"
-                />
-              </div>
-              <div class="form-group">
-                <label for="exampleInputPassword1">Password</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  v-model="password"
-                  id="exampleInputPassword1"
-                  placeholder="Inserisci la tua Password"
-                />
-              </div>
-
-              <button
-                type="submit"
-                @click.prevent="saveUser"
-                class="btn btn-outline-success"
-              >
-                Registrati
-              </button>
-            </form>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-6">
-        <div class="card border shadow">
-          <div class="card-header">Lista Utenti :</div>
+          <div class="card-header">Lista Permessi Registrati :</div>
 
           <div class="card-body">
             <table class="table table-dark">
               <thead>
                 <tr>
                   <th scope="col">#</th>
-                  <th scope="col">Nome</th>
-                  <th scope="col">Email</th>
-                  <th scope="col">Modifica</th>
-                  <th scope="col">Elimina</th>
+                  <th scope="col">Permesso</th>
+                  <th scope="col">Descrizione</th>
+                  
                 </tr>
               </thead>
               <tbody>

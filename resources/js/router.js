@@ -18,6 +18,11 @@ const routes = [
         component: () => import('./views/List.vue'), // Vue we just created
     },
     { // new route for our categories page
+        path: '/role',
+        name: 'role',
+        component: () => import('./views/Role.vue'), // Vue we just created
+    },
+    { // new route for our categories page
         path: '/crud',
         name: 'crud',
         component: () => import('./views/CrudApp.vue'), // Vue we just created

@@ -1996,6 +1996,14 @@ var routes = [{
 
 }, {
   // new route for our categories page
+  path: '/role',
+  name: 'role',
+  component: function component() {
+    return __webpack_require__.e(/*! import() */ "resources_js_views_Role_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./views/Role.vue */ "./resources/js/views/Role.vue"));
+  } // Vue we just created
+
+}, {
+  // new route for our categories page
   path: '/crud',
   name: 'crud',
   component: function component() {
@@ -38616,24 +38624,7 @@ var render = function() {
           [
             _c("i", { staticClass: "fas fa-fw fa-tachometer-alt" }),
             _vm._v(" "),
-            _c("span", [_vm._v("Dashboard")])
-          ]
-        )
-      ],
-      1
-    ),
-    _vm._v(" "),
-    _c(
-      "li",
-      { staticClass: "nav-item" },
-      [
-        _c(
-          "router-link",
-          { staticClass: "nav-link", attrs: { to: "/list", exact: "" } },
-          [
-            _c("i", { staticClass: "fas fa-fw fa-chart-area" }),
-            _vm._v(" "),
-            _c("span", [_vm._v("Lista Permessi")])
+            _c("span", [_vm._v("Homepage")])
           ]
         )
       ],
@@ -38651,6 +38642,40 @@ var render = function() {
             _c("i", { staticClass: "fas fa-fw fa-chart-area" }),
             _vm._v(" "),
             _c("span", [_vm._v("Crud App Utenti")])
+          ]
+        )
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c(
+      "li",
+      { staticClass: "nav-item" },
+      [
+        _c(
+          "router-link",
+          { staticClass: "nav-link", attrs: { to: "/role", exact: "" } },
+          [
+            _c("i", { staticClass: "fas fa-fw fa-chart-area" }),
+            _vm._v(" "),
+            _c("span", [_vm._v("Crud App Ruoli")])
+          ]
+        )
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c(
+      "li",
+      { staticClass: "nav-item" },
+      [
+        _c(
+          "router-link",
+          { staticClass: "nav-link", attrs: { to: "/list", exact: "" } },
+          [
+            _c("i", { staticClass: "fas fa-fw fa-chart-area" }),
+            _vm._v(" "),
+            _c("span", [_vm._v("Lista Permessi")])
           ]
         )
       ],
@@ -54506,7 +54531,7 @@ Vue.compile = compileToFunctions;
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if ({"resources_js_views_List_vue":1,"resources_js_views_CrudApp_vue":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			if ({"resources_js_views_List_vue":1,"resources_js_views_Role_vue":1,"resources_js_views_CrudApp_vue":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};
