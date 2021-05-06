@@ -144,39 +144,114 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
       users: {},
+      id: "",
       name: "",
       email: "",
       password: "",
       editname: "",
-      editemail: "",
-      editpassword: ""
+      editemail: ""
     };
   },
   mounted: function mounted() {
     this.getResults();
   },
   methods: {
-    getResults: function getResults() {
+    saveUser: function saveUser() {
       var _this = this;
+
+      axios.post("save_user", {
+        name: this.name,
+        email: this.email,
+        password: this.password
+      }).then(function (response) {
+        _this.name = "";
+        _this.email = "";
+        _this.password = "";
+
+        _this.getResults();
+      });
+    },
+    getResults: function getResults() {
+      var _this2 = this;
 
       var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
       axios.get("all_users?page=" + page).then(function (response) {
         console.log(response.data);
-        _this.users = response.data;
+        _this2.users = response.data;
       });
     },
     editUser: function editUser(id) {
-      var _this2 = this;
+      var _this3 = this;
 
-      axios.get('edit_user/' + id).then(function (response) {
-        console.log(response);
-        _this2.editname = response.data.name;
-        _this2.editemail = response.data.email;
-        _this2.editpassword = response.data.password;
+      axios.get("edit_user/" + id).then(function (response) {
+        _this3.id = response.data.id;
+        _this3.editname = response.data.name;
+        _this3.editemail = response.data.email;
+      });
+    },
+    updateUser: function updateUser() {
+      var _this4 = this;
+
+      axios.put("update_user", {
+        id: this.id,
+        name: this.editname,
+        email: this.editemail
+      }).then(function (response) {
+        _this4.getResults();
+      });
+    },
+    deleteUser: function deleteUser(id) {
+      var _this5 = this;
+
+      axios["delete"]("delete_user/" + id).then(function (response) {
+        _this5.getResults();
       });
     }
   }
@@ -274,9 +349,133 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
     _c("div", { staticClass: "row justify-content-center" }, [
-      _c("div", { staticClass: "col-md-12" }, [
-        _c("div", { staticClass: "card" }, [
-          _c("div", { staticClass: "card-header" }, [_vm._v("All user")]),
+      _c("div", { staticClass: "col-md-6" }, [
+        _c("div", { staticClass: "card border shadow" }, [
+          _c("div", { staticClass: "card-header" }, [
+            _vm._v("Inserisci un nuovo Utente :")
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "card-body" }, [
+            _c("form", [
+              _c("div", { staticClass: "form-group" }, [
+                _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+                  _vm._v("Nome")
+                ]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.name,
+                      expression: "name"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: {
+                    type: "text",
+                    id: "exampleInputEmail1",
+                    "aria-describedby": "emailHelp",
+                    placeholder: "Inserisci un nome per il tuo account"
+                  },
+                  domProps: { value: _vm.name },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.name = $event.target.value
+                    }
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-group" }, [
+                _c("label", { attrs: { for: "exampleInputPassword1" } }, [
+                  _vm._v("Email")
+                ]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.email,
+                      expression: "email"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: {
+                    type: "text",
+                    id: "exampleInputPassword1",
+                    placeholder: "Inserisci la tua email"
+                  },
+                  domProps: { value: _vm.email },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.email = $event.target.value
+                    }
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-group" }, [
+                _c("label", { attrs: { for: "exampleInputPassword1" } }, [
+                  _vm._v("Password")
+                ]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.password,
+                      expression: "password"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: {
+                    type: "text",
+                    id: "exampleInputPassword1",
+                    placeholder: "Inserisci la tua Password"
+                  },
+                  domProps: { value: _vm.password },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.password = $event.target.value
+                    }
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-outline-success",
+                  attrs: { type: "submit" },
+                  on: {
+                    click: function($event) {
+                      $event.preventDefault()
+                      return _vm.saveUser($event)
+                    }
+                  }
+                },
+                [_vm._v("\n              Registrati\n            ")]
+              )
+            ])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-6" }, [
+        _c("div", { staticClass: "card border shadow" }, [
+          _c("div", { staticClass: "card-header" }, [_vm._v("Lista Utenti :")]),
           _vm._v(" "),
           _c(
             "div",
@@ -301,7 +500,7 @@ var render = function() {
                         _c(
                           "button",
                           {
-                            staticClass: "btn btn-primary",
+                            staticClass: "btn btn-outline-primary",
                             attrs: {
                               type: "button",
                               "data-toggle": "modal",
@@ -316,6 +515,26 @@ var render = function() {
                           [
                             _vm._v(
                               "\n                    Edit\n                  "
+                            )
+                          ]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-outline-danger",
+                            attrs: { type: "button" },
+                            on: {
+                              click: function($event) {
+                                return _vm.deleteUser(user.id)
+                              }
+                            }
+                          },
+                          [
+                            _vm._v(
+                              "\n                    Delete\n                  "
                             )
                           ]
                         )
@@ -389,25 +608,12 @@ var render = function() {
                           _vm.editname = $event.target.value
                         }
                       }
-                    }),
-                    _vm._v(" "),
-                    _c(
-                      "small",
-                      {
-                        staticClass: "form-text text-muted",
-                        attrs: { id: "emailHelp" }
-                      },
-                      [
-                        _vm._v(
-                          "We'll never share your email with anyone elsdsddse."
-                        )
-                      ]
-                    )
+                    })
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "form-group" }, [
                     _c("label", { attrs: { for: "exampleInputPassword1" } }, [
-                      _vm._v("email")
+                      _vm._v("Email")
                     ]),
                     _vm._v(" "),
                     _c("input", {
@@ -437,56 +643,33 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "form-group" }, [
-                    _c("label", { attrs: { for: "exampleInputPassword1" } }, [
-                      _vm._v("password")
-                    ]),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.editpassword,
-                          expression: "editpassword"
-                        }
-                      ],
-                      staticClass: "form-control",
-                      attrs: {
-                        type: "text",
-                        id: "exampleInputPassword1",
-                        placeholder: "password"
-                      },
-                      domProps: { value: _vm.editpassword },
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-outline-success",
+                      attrs: { type: "submit", "data-dismiss": "modal" },
                       on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.editpassword = $event.target.value
+                        click: function($event) {
+                          $event.preventDefault()
+                          return _vm.updateUser($event)
                         }
                       }
-                    })
-                  ]),
+                    },
+                    [_vm._v("\n              Conferma Modifica\n            ")]
+                  ),
                   _vm._v(" "),
                   _c(
                     "button",
                     {
-                      staticClass: "btn btn-primary",
-                      attrs: { type: "submit" },
-                      on: {
-                        click: function($event) {
-                          $event.preventDefault()
-                          return _vm.saveUser($event)
-                        }
-                      }
+                      staticClass: "btn btn-outline-danger",
+                      attrs: { type: "button", "data-dismiss": "modal" }
                     },
-                    [_vm._v("\n              Submit\n            ")]
+                    [_vm._v("\n              Chiudi Finestra\n            ")]
                   )
                 ])
               ]),
               _vm._v(" "),
-              _vm._m(2)
+              _c("div", { staticClass: "modal-footer" })
             ])
           ]
         )
@@ -503,11 +686,13 @@ var staticRenderFns = [
       _c("tr", [
         _c("th", { attrs: { scope: "col" } }, [_vm._v("#")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Name")]),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Nome")]),
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Email")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Action")])
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Modifica")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Elimina")])
       ])
     ])
   },
@@ -519,7 +704,7 @@ var staticRenderFns = [
       _c(
         "h5",
         { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
-        [_vm._v("Modal title")]
+        [_vm._v("Modifica")]
       ),
       _vm._v(" "),
       _c(
@@ -533,27 +718,6 @@ var staticRenderFns = [
           }
         },
         [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "modal-footer" }, [
-      _c(
-        "button",
-        {
-          staticClass: "btn btn-secondary",
-          attrs: { type: "button", "data-dismiss": "modal" }
-        },
-        [_vm._v("\n            Close\n          ")]
-      ),
-      _vm._v(" "),
-      _c(
-        "button",
-        { staticClass: "btn btn-primary", attrs: { type: "button" } },
-        [_vm._v("Save changes")]
       )
     ])
   }

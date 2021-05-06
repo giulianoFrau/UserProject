@@ -645,7 +645,7 @@ var render = function() {
                   _c(
                     "button",
                     {
-                      staticClass: "btn btn-outline-primary",
+                      staticClass: "btn btn-outline-success",
                       attrs: { type: "submit", "data-dismiss": "modal" },
                       on: {
                         click: function($event) {

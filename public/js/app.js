@@ -38447,7 +38447,7 @@ var staticRenderFns = [
     return _c("footer", { staticClass: "sticky-footer" }, [
       _c("div", { staticClass: "container my-auto" }, [
         _c("div", { staticClass: "copyright text-center my-auto" }, [
-          _c("span", [_vm._v("Copyright © Your Website 2019")])
+          _c("span", [_vm._v("Copyright © Website for Smart Contact 2021")])
         ])
       ])
     ])
@@ -38486,11 +38486,9 @@ var staticRenderFns = [
       "nav",
       { staticClass: "sb-topnav navbar navbar-expand navbar-dark bg-dark" },
       [
-        _c(
-          "a",
-          { staticClass: "navbar-brand", attrs: { href: "index.html" } },
-          [_vm._v("Start Bootstrap")]
-        ),
+        _c("a", { staticClass: "navbar-brand", attrs: { href: "" } }, [
+          _vm._v("Benvenuto!")
+        ]),
         _vm._v(" "),
         _c(
           "button",
@@ -38635,7 +38633,7 @@ var render = function() {
           [
             _c("i", { staticClass: "fas fa-fw fa-chart-area" }),
             _vm._v(" "),
-            _c("span", [_vm._v("List")])
+            _c("span", [_vm._v("Lista Permessi")])
           ]
         )
       ],
@@ -38652,7 +38650,7 @@ var render = function() {
           [
             _c("i", { staticClass: "fas fa-fw fa-chart-area" }),
             _vm._v(" "),
-            _c("span", [_vm._v("Crud App")])
+            _c("span", [_vm._v("Crud App Utenti")])
           ]
         )
       ],

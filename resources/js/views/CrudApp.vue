@@ -156,7 +156,7 @@
               <button
                 type="submit"
                 @click.prevent="updateUser"
-                class="btn btn-outline-primary"
+               class="btn btn-outline-success"
                 data-dismiss="modal"
               >
                 Conferma Modifica

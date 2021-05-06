@@ -1,22 +1,69 @@
 <template>
   <div class="container">
     <div class="row justify-content-center">
-    
+      <div class="col-md-6">
+        <div class="card border shadow">
+          <div class="card-header">Inserisci un nuovo Utente :</div>
 
-     
+          <div class="card-body">
+            <form>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Nome</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  v-model="name"
+                  id="exampleInputEmail1"
+                  aria-describedby="emailHelp"
+                  placeholder="Inserisci un nome per il tuo account"
+                />
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Email</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  v-model="email"
+                  id="exampleInputPassword1"
+                  placeholder="Inserisci la tua email"
+                />
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  v-model="password"
+                  id="exampleInputPassword1"
+                  placeholder="Inserisci la tua Password"
+                />
+              </div>
 
-      <div class="col-md-12">
-        <div class="card">
-          <div class="card-header">All user</div>
+              <button
+                type="submit"
+                @click.prevent="saveUser"
+                class="btn btn-outline-success"
+              >
+                Registrati
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="card border shadow">
+          <div class="card-header">Lista Utenti :</div>
 
           <div class="card-body">
             <table class="table table-dark">
               <thead>
                 <tr>
                   <th scope="col">#</th>
-                  <th scope="col">Name</th>
+                  <th scope="col">Nome</th>
                   <th scope="col">Email</th>
-                  <th>Action</th>
+                  <th scope="col">Modifica</th>
+                  <th scope="col">Elimina</th>
                 </tr>
               </thead>
               <tbody>
@@ -27,12 +74,22 @@
                   <td>
                     <button
                       type="button"
-                      class="btn btn-primary"
+                      class="btn btn-outline-primary"
                       @click="editUser(user.id)"
                       data-toggle="modal"
                       data-target="#exampleModal"
                     >
                       Edit
+                    </button>
+                  </td>
+
+                  <td>
+                    <button
+                      type="button"
+                      class="btn btn-outline-danger"
+                      @click="deleteUser(user.id)"
+                    >
+                      Delete
                     </button>
                   </td>
                 </tr>
@@ -59,7 +116,7 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+            <h5 class="modal-title" id="exampleModalLabel">Modifica</h5>
             <button
               type="button"
               class="close"
@@ -70,7 +127,7 @@
             </button>
           </div>
           <div class="modal-body">
-             <form>
+            <form>
               <div class="form-group">
                 <label for="exampleInputEmail1">Nome</label>
                 <input
@@ -81,12 +138,9 @@
                   aria-describedby="emailHelp"
                   placeholder="Enter name"
                 />
-                <small id="emailHelp" class="form-text text-muted"
-                  >We'll never share your email with anyone elsdsddse.</small
-                >
               </div>
               <div class="form-group">
-                <label for="exampleInputPassword1">email</label>
+                <label for="exampleInputPassword1">Email</label>
                 <input
                   type="text"
                   class="form-control"
@@ -95,36 +149,25 @@
                   placeholder="email"
                 />
               </div>
-              <div class="form-group">
-                <label for="exampleInputPassword1">password</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  v-model="editpassword"
-                  id="exampleInputPassword1"
-                  placeholder="password"
-                />
-              </div>
 
               <button
                 type="submit"
-                @click.prevent="saveUser"
-                class="btn btn-primary"
+                @click.prevent="updateUser"
+                class="btn btn-outline-success"
+                data-dismiss="modal"
               >
-                Submit
+                Conferma Modifica
+              </button>
+              <button
+                type="button"
+                class="btn btn-outline-danger"
+                data-dismiss="modal"
+              >
+                Chiudi Finestra
               </button>
             </form>
           </div>
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-dismiss="modal"
-            >
-              Close
-            </button>
-            <button type="button" class="btn btn-primary">Save changes</button>
-          </div>
+          <div class="modal-footer"></div>
         </div>
       </div>
     </div>
@@ -136,18 +179,32 @@ export default {
   data() {
     return {
       users: {},
+      id: "",
       name: "",
       email: "",
       password: "",
       editname: "",
       editemail: "",
-      editpassword:""
     };
   },
   mounted() {
     this.getResults();
   },
   methods: {
+    saveUser() {
+      axios
+        .post("save_user", {
+          name: this.name,
+          email: this.email,
+          password: this.password,
+        })
+        .then((response) => {
+          this.name = "";
+          this.email = "";
+          this.password = "";
+          this.getResults();
+        });
+    },
 
     getResults(page = 1) {
       axios.get("all_users?page=" + page).then((response) => {
@@ -156,18 +213,31 @@ export default {
       });
     },
 
-    editUser(id){
-        axios.get('edit_user/'+id)
-        .then(response => {
-          console.log(response);
-          this.editname=response.data.name;
-          this.editemail=response.data.email;
-          this.editpassword=response.data.password;
+    editUser(id) {
+      axios.get("edit_user/" + id).then((response) => {
+        this.id = response.data.id;
+        this.editname = response.data.name;
+        this.editemail = response.data.email;
+      });
+    },
+
+    updateUser() {
+      axios
+        .put("update_user", {
+          id: this.id,
+          name: this.editname,
+          email: this.editemail,
+        })
+        .then((response) => {
+          this.getResults();
         });
+    },
 
-    }
-
-
+    deleteUser(id) {
+      axios.delete("delete_user/" + id).then((response) => {
+        this.getResults();
+      });
+    },
   },
 };
 </script>
