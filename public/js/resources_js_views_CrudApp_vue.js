@@ -188,6 +188,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -249,8 +251,10 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     deleteUser: function deleteUser(id) {
+      var _this5 = this;
+
       axios["delete"]("delete_user/" + id).then(function (response) {
-        return console.log(response);
+        _this5.getResults();
       });
     }
   }
@@ -349,7 +353,7 @@ var render = function() {
   return _c("div", { staticClass: "container" }, [
     _c("div", { staticClass: "row justify-content-center" }, [
       _c("div", { staticClass: "col-md-6" }, [
-        _c("div", { staticClass: "card" }, [
+        _c("div", { staticClass: "card border shadow" }, [
           _c("div", { staticClass: "card-header" }, [
             _vm._v("Create new user")
           ]),
@@ -478,7 +482,7 @@ var render = function() {
                     }
                   }
                 },
-                [_vm._v("\n              Submit\n            ")]
+                [_vm._v("\n                Submit\n              ")]
               )
             ])
           ])
@@ -486,8 +490,8 @@ var render = function() {
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "col-md-6" }, [
-        _c("div", { staticClass: "card" }, [
-          _c("div", { staticClass: "card-header" }, [_vm._v("All user")]),
+        _c("div", { staticClass: "card border shadow" }, [
+          _c("div", { staticClass: "card-header" }, [_vm._v("Lista Utenti")]),
           _vm._v(" "),
           _c(
             "div",
@@ -526,11 +530,13 @@ var render = function() {
                           },
                           [
                             _vm._v(
-                              "\n                    Edit\n                  "
+                              "\n                      Edit\n                    "
                             )
                           ]
-                        ),
-                        _vm._v(" "),
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [
                         _c(
                           "button",
                           {
@@ -544,7 +550,7 @@ var render = function() {
                           },
                           [
                             _vm._v(
-                              "\n                    Delete\n                  "
+                              "\n                      Delete\n                    "
                             )
                           ]
                         )
@@ -678,7 +684,7 @@ var render = function() {
                         }
                       }
                     },
-                    [_vm._v("\n              Submit\n            ")]
+                    [_vm._v("\n                Submit\n              ")]
                   ),
                   _vm._v(" "),
                   _c(
@@ -687,7 +693,7 @@ var render = function() {
                       staticClass: "btn btn-danger",
                       attrs: { type: "button", "data-dismiss": "modal" }
                     },
-                    [_vm._v("\n              Close\n            ")]
+                    [_vm._v("\n                Close\n              ")]
                   )
                 ])
               ]),
@@ -707,13 +713,15 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", [
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("#")]),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("id")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Name")]),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Nome")]),
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Email")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Action")])
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Modifica")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Elimina")])
       ])
     ])
   },

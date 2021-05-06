@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-md-6">
-        <div class="card">
+        <div class="card border shadow">
           <div class="card-header">Create new user</div>
 
           <div class="card-body">
@@ -55,17 +55,18 @@
       </div>
 
       <div class="col-md-6">
-        <div class="card">
-          <div class="card-header">All user</div>
+        <div class="card border shadow">
+          <div class="card-header">Lista Utenti</div>
 
           <div class="card-body">
             <table class="table table-dark">
               <thead>
                 <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">Name</th>
+                  <th scope="col">id</th>
+                  <th scope="col">Nome</th>
                   <th scope="col">Email</th>
-                  <th>Action</th>
+                 <th scope="col">Modifica</th>
+                  <th scope="col">Elimina</th>
                 </tr>
               </thead>
               <tbody>
@@ -83,8 +84,9 @@
                     >
                       Edit
                     </button>
+                  </td>
 
-
+<td>
                      <button
                       type="button"
                       class="btn btn-danger"
@@ -238,9 +240,9 @@ export default {
 
     deleteUser(id){
     axios.delete("delete_user/" + id)
-    .then(response =>console.log(response));
-    
-    
+     .then((response) => {
+          this.getResults();
+        });
     }
   },
 };
