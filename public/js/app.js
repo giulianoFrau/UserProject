@@ -1983,7 +1983,7 @@ __webpack_require__.r(__webpack_exports__);
 
 vue__WEBPACK_IMPORTED_MODULE_1__.default.use(vue_router__WEBPACK_IMPORTED_MODULE_2__.default);
 var routes = [{
-  path: '/',
+  path: '/home',
   name: 'welcome',
   component: _views_Welcome_vue__WEBPACK_IMPORTED_MODULE_0__.default
 }, {
@@ -38611,7 +38611,7 @@ var render = function() {
       [
         _c(
           "router-link",
-          { staticClass: "nav-link", attrs: { to: "/", exact: "" } },
+          { staticClass: "nav-link", attrs: { to: "/home", exact: "" } },
           [
             _c("i", { staticClass: "fas fa-fw fa-tachometer-alt" }),
             _vm._v(" "),
