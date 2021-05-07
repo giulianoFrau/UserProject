@@ -38641,7 +38641,7 @@ var render = function() {
           [
             _c("i", { staticClass: "fas fa-fw fa-chart-area" }),
             _vm._v(" "),
-            _c("span", [_vm._v("Crud App Utenti")])
+            _c("span", [_vm._v(" Utenti")])
           ]
         )
       ],
@@ -38658,7 +38658,7 @@ var render = function() {
           [
             _c("i", { staticClass: "fas fa-fw fa-chart-area" }),
             _vm._v(" "),
-            _c("span", [_vm._v("Crud App Ruoli")])
+            _c("span", [_vm._v(" Ruoli")])
           ]
         )
       ],

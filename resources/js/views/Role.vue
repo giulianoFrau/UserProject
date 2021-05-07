@@ -3,37 +3,47 @@
     <div class="row justify-content-center">
       <div class="col-md-6">
         <div class="card border shadow">
-          <div class="card-header">Inserisci un nuovo Ruolo : </div>
+          <div class="card-header">Inserisci un nuovo Ruolo :</div>
 
           <div class="card-body">
             <form>
               <div class="form-group">
-                <label for="exampleInputEmail1">Nome Ruolo</label>
+                <label for="exampleInputEmail1">Nome</label>
                 <input
                   type="text"
                   class="form-control"
-                  v-model="name"
-                  id="exampleInputEmail1"
+                  v-model="nome"
+                  id="nome"
                   aria-describedby="emailHelp"
                   placeholder="Inserisci il nome del ruolo"
                 />
-               
               </div>
               <div class="form-group">
-                <label for="exampleInputPassword1">Permesso</label>
+                <label for="exampleInputEmail1">Permessi</label>
                 <input
                   type="text"
                   class="form-control"
-                  v-model="email"
-                  id="exampleInputPassword1"
-                  placeholder="Inserisci il tipo di permesso"
+                  v-model="permessi"
+                  id="permessi"
+                  aria-describedby="emailHelp"
+                  placeholder="Inserisci il permesso"
+                />
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Descrizione</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  v-model="descrizione"
+                  id="descrizione"
+                  aria-describedby="emailHelp"
+                  placeholder="Inserisci la  descrizione ruolo"
                 />
               </div>
 
-
               <button
                 type="submit"
-                @click.prevent="saveUser"
+                @click.prevent="saveRole"
                 class="btn btn-outline-success"
               >
                 Inserisci
@@ -42,61 +52,60 @@
           </div>
         </div>
       </div>
+          </div>
+          <br>
 
-      <div class="col-md-6">
+      <div class="col-md-12">
         <div class="card border shadow">
-          <div class="card-header">Lista Ruoli :</div>
-
+          <div class="card-header">Lista Ruoli:</div>
           <div class="card-body">
             <table class="table table-dark">
               <thead>
                 <tr>
                   <th scope="col">#</th>
-                  <th scope="col">Nome Ruolo</th>
-                  <th scope="col">Permesso</th>
-                 <th scope="col">Azioni</th>
-                  
+                  <th scope="col">Ruolo</th>
+                  <th scope="col">Permessi</th>
+                  <th scope="col">Azioni</th>
                 </tr>
               </thead>
               <tbody>
-                <tr v-for="(user,index) in users.data" :key="user.id">
-                  <th scope="row">{{ index+1 }}</th>
-                  <td>{{ user.name }}</td>
-                  <td>{{ user.email }}</td>
-                   <td>{{ user.email }}</td>
+              <tr v-for="(role, index) in roles.data" :key="role.id">
+                  <th scope="row">{{ index + 1 }}</th>
+                  <td>{{ role.nome }}</td>
+                  <td>{{ role.permessi }}</td>
+           
                   <td>
                     <button
                       type="button"
                       class="btn btn-outline-primary"
-                      @click="editUser(user.id)"
+                      @click="editRole(role.id)"
                       data-toggle="modal"
                       data-target="#exampleModal"
                     >
-                      Edit
+                      Modifica
                     </button>
                   </td>
 
-<td>
-                     <button
+                  <td>
+                    <button
                       type="button"
                       class="btn btn-outline-danger"
-                      @click="deleteUser(user.id)"
-                     
+                      @click="deleteRole(role.id)"
                     >
-                      Delete
+                      Cancella
                     </button>
                   </td>
                 </tr>
               </tbody>
             </table>
             <pagination
-              :data="users"
-              @pagination-change-page="getResults"
+              :data="roles"
+              @pagination-change-page="getRoles"
             ></pagination>
           </div>
         </div>
       </div>
-    </div>
+
 
     <!-- Modal -->
     <div
@@ -123,37 +132,40 @@
           <div class="modal-body">
             <form>
               <div class="form-group">
-                <label for="exampleInputEmail1">Nome</label>
+                <label for="exampleInputEmail1">Nome Ruolo</label>
                 <input
                   type="text"
                   class="form-control"
-                  v-model="editname"
+                  v-model="editnome"
                   id="exampleInputEmail1"
                   aria-describedby="emailHelp"
-                  placeholder="Enter name"
+                  placeholder="Modifica nome ruolo"
                 />
-                
               </div>
               <div class="form-group">
-                <label for="exampleInputPassword1">Email</label>
+                <label for="exampleInputPassword1">Permessi</label>
                 <input
                   type="text"
                   class="form-control"
-                  v-model="editemail"
+                  v-model="editpermessi"
                   id="exampleInputPassword1"
-                  placeholder="email"
+                  placeholder="Modifica permessi"
                 />
               </div>
 
               <button
                 type="submit"
-                @click.prevent="updateUser"
-               class="btn btn-outline-success"
+                @click.prevent="updateRole"
+                class="btn btn-outline-success"
                 data-dismiss="modal"
               >
                 Conferma Modifica
               </button>
-              <button type="button" class="btn btn-outline-danger" data-dismiss="modal">
+              <button
+                type="button"
+                class="btn btn-outline-danger"
+                data-dismiss="modal"
+              >
                 Chiudi Finestra
               </button>
             </form>
@@ -165,73 +177,71 @@
   </div>
 </template>
 
+
 <script>
 export default {
   data() {
     return {
-      users: {},
+      roles: {},
       id: "",
-      name: "",
-      email: "",
-      password: "",
-      editname: "",
-      editemail: "",
-      
-      };
+      nome: "",
+      permessi: "",
+      descrizione: "",
+      editnome: "",
+      editpermessi: "",
+    };
   },
   mounted() {
-    this.getResults();
+    this.getRoles();
   },
   methods: {
-    saveUser() {
+    saveRole() {
       axios
-        .post("save_user", {
-          name: this.name,
-          email: this.email,
-          password: this.password,
+        .post("save_role", {
+          nome: this.nome,
+          permessi: this.permessi,
+          descrizione: this.descrizione,
         })
         .then((response) => {
-          this.name = "";
-          this.email = "";
-          this.password = "";
-          this.getResults();
+          this.nome = "";
+          this.permessi = "";
+          this.descrizione = "";
+          this.getRoles();
         });
     },
-
-    getResults(page = 1) {
-      axios.get("all_users?page=" + page).then((response) => {
+    getRoles(page = 1) {
+      axios.get("all_roles?page=" + page).then((response) => {
         console.log(response.data);
-        this.users = response.data;
+        this.roles = response.data;
       });
     },
 
-    editUser(id) {
-      axios.get("edit_user/" + id).then((response) => {
+
+ editRole(id) {
+      axios.get("edit_role/" + id).then((response) => {
         this.id = response.data.id;
-        this.editname = response.data.name;
-        this.editemail = response.data.email;
-   
+        this.editnome = response.data.nome;
+        this.editpermessi = response.data.permessi;
       });
     },
 
-    updateUser() {
+    updateRole() {
       axios
-        .put("update_user", {
+        .put("update_role", {
           id: this.id,
-          name: this.editname,
-          email: this.editemail,
+          nome: this.editnome,
+          permessi: this.editpermessi,
         })
         .then((response) => {
-          this.getResults();
+          this.getRoles();
         });
     },
 
-    deleteUser(id){
-    axios.delete("delete_user/" + id)
-     .then((response) => {
-          this.getResults();
-        });
-    }
+    deleteRole(id) {
+      axios.delete("delete_role/" + id).then((response) => {
+        this.getRoles();
+      });
+    },
   },
 };
 </script>

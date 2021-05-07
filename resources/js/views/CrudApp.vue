@@ -3,7 +3,7 @@
     <div class="row justify-content-center">
       <div class="col-md-6">
         <div class="card border shadow">
-          <div class="card-header">Inserisci un nuovo Utente : </div>
+          <div class="card-header">Inserisci un nuovo Utente :</div>
 
           <div class="card-body">
             <form>
@@ -17,7 +17,6 @@
                   aria-describedby="emailHelp"
                   placeholder="Inserisci un nome per il tuo account"
                 />
-               
               </div>
               <div class="form-group">
                 <label for="exampleInputPassword1">Email</label>
@@ -51,8 +50,10 @@
           </div>
         </div>
       </div>
+       </div>
+      <br>
 
-      <div class="col-md-6">
+      <div class="col-md-12">
         <div class="card border shadow">
           <div class="card-header">Lista Utenti :</div>
 
@@ -63,13 +64,13 @@
                   <th scope="col">#</th>
                   <th scope="col">Nome</th>
                   <th scope="col">Email</th>
-                 <th scope="col">Modifica</th>
-                  <th scope="col">Elimina</th>
+                  <th scope="col">Azioni</th>
+                 
                 </tr>
               </thead>
               <tbody>
-                <tr v-for="(user,index) in users.data" :key="user.id">
-                  <th scope="row">{{ index+1 }}</th>
+                <tr v-for="(user, index) in users.data" :key="user.id">
+                  <th scope="row">{{ index + 1 }}</th>
                   <td>{{ user.name }}</td>
                   <td>{{ user.email }}</td>
                   <td>
@@ -80,18 +81,17 @@
                       data-toggle="modal"
                       data-target="#exampleModal"
                     >
-                      Edit
+                      Modifica
                     </button>
                   </td>
 
-<td>
-                     <button
+                  <td>
+                    <button
                       type="button"
                       class="btn btn-outline-danger"
                       @click="deleteUser(user.id)"
-                     
                     >
-                      Delete
+                      Cancella
                     </button>
                   </td>
                 </tr>
@@ -104,7 +104,7 @@
           </div>
         </div>
       </div>
-    </div>
+   
 
     <!-- Modal -->
     <div
@@ -140,7 +140,6 @@
                   aria-describedby="emailHelp"
                   placeholder="Enter name"
                 />
-                
               </div>
               <div class="form-group">
                 <label for="exampleInputPassword1">Email</label>
@@ -156,12 +155,16 @@
               <button
                 type="submit"
                 @click.prevent="updateUser"
-               class="btn btn-outline-success"
+                class="btn btn-outline-success"
                 data-dismiss="modal"
               >
                 Conferma Modifica
               </button>
-              <button type="button" class="btn btn-outline-danger" data-dismiss="modal">
+              <button
+                type="button"
+                class="btn btn-outline-danger"
+                data-dismiss="modal"
+              >
                 Chiudi Finestra
               </button>
             </form>
@@ -184,8 +187,7 @@ export default {
       password: "",
       editname: "",
       editemail: "",
-      
-      };
+    };
   },
   mounted() {
     this.getResults();
@@ -218,7 +220,6 @@ export default {
         this.id = response.data.id;
         this.editname = response.data.name;
         this.editemail = response.data.email;
-   
       });
     },
 
@@ -234,12 +235,11 @@ export default {
         });
     },
 
-    deleteUser(id){
-    axios.delete("delete_user/" + id)
-     .then((response) => {
-          this.getResults();
-        });
-    }
+    deleteUser(id) {
+      axios.delete("delete_user/" + id).then((response) => {
+        this.getResults();
+      });
+    },
   },
 };
 </script>

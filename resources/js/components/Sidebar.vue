@@ -10,13 +10,13 @@
          <li class="nav-item">
             <router-link to="/crud" class="nav-link" exact>
                 <i class="fas fa-fw fa-chart-area"></i>
-                <span>Crud App Utenti</span>
+                <span> Utenti</span>
             </router-link>
         </li>
          <li class="nav-item">
             <router-link to="/role" class="nav-link" exact>
                 <i class="fas fa-fw fa-chart-area"></i>
-                <span>Crud App Ruoli</span>
+                <span> Ruoli</span>
             </router-link>
         </li>
 		<li class="nav-item">

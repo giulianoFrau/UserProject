@@ -186,6 +186,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -351,7 +354,7 @@ var render = function() {
       _c("div", { staticClass: "col-md-6" }, [
         _c("div", { staticClass: "card border shadow" }, [
           _c("div", { staticClass: "card-header" }, [
-            _vm._v("Inserisci un nuovo Utente : ")
+            _vm._v("Inserisci un nuovo Utente :")
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "card-body" }, [
@@ -465,93 +468,95 @@ var render = function() {
                     }
                   }
                 },
-                [_vm._v("\n                Registrati\n              ")]
+                [_vm._v("\n              Registrati\n            ")]
               )
             ])
           ])
         ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-md-6" }, [
-        _c("div", { staticClass: "card border shadow" }, [
-          _c("div", { staticClass: "card-header" }, [_vm._v("Lista Utenti :")]),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "card-body" },
-            [
-              _c("table", { staticClass: "table table-dark" }, [
-                _vm._m(0),
-                _vm._v(" "),
-                _c(
-                  "tbody",
-                  _vm._l(_vm.users.data, function(user, index) {
-                    return _c("tr", { key: user.id }, [
-                      _c("th", { attrs: { scope: "row" } }, [
-                        _vm._v(_vm._s(index + 1))
-                      ]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(user.name))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(user.email))]),
-                      _vm._v(" "),
-                      _c("td", [
-                        _c(
-                          "button",
-                          {
-                            staticClass: "btn btn-outline-primary",
-                            attrs: {
-                              type: "button",
-                              "data-toggle": "modal",
-                              "data-target": "#exampleModal"
-                            },
-                            on: {
-                              click: function($event) {
-                                return _vm.editUser(user.id)
-                              }
-                            }
-                          },
-                          [
-                            _vm._v(
-                              "\n                      Edit\n                    "
-                            )
-                          ]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("td", [
-                        _c(
-                          "button",
-                          {
-                            staticClass: "btn btn-outline-danger",
-                            attrs: { type: "button" },
-                            on: {
-                              click: function($event) {
-                                return _vm.deleteUser(user.id)
-                              }
-                            }
-                          },
-                          [
-                            _vm._v(
-                              "\n                      Delete\n                    "
-                            )
-                          ]
-                        )
-                      ])
-                    ])
-                  }),
-                  0
-                )
-              ]),
+      ])
+    ]),
+    _vm._v(" "),
+    _c("br"),
+    _vm._v(" "),
+    _c("div", { staticClass: "col-md-12" }, [
+      _c("div", { staticClass: "card border shadow" }, [
+        _c("div", { staticClass: "card-header" }, [_vm._v("Lista Utenti :")]),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "card-body" },
+          [
+            _c("table", { staticClass: "table table-dark" }, [
+              _vm._m(0),
               _vm._v(" "),
-              _c("pagination", {
-                attrs: { data: _vm.users },
-                on: { "pagination-change-page": _vm.getResults }
-              })
-            ],
-            1
-          )
-        ])
+              _c(
+                "tbody",
+                _vm._l(_vm.users.data, function(user, index) {
+                  return _c("tr", { key: user.id }, [
+                    _c("th", { attrs: { scope: "row" } }, [
+                      _vm._v(_vm._s(index + 1))
+                    ]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(user.name))]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(user.email))]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-outline-primary",
+                          attrs: {
+                            type: "button",
+                            "data-toggle": "modal",
+                            "data-target": "#exampleModal"
+                          },
+                          on: {
+                            click: function($event) {
+                              return _vm.editUser(user.id)
+                            }
+                          }
+                        },
+                        [
+                          _vm._v(
+                            "\n                    Modifica\n                  "
+                          )
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-outline-danger",
+                          attrs: { type: "button" },
+                          on: {
+                            click: function($event) {
+                              return _vm.deleteUser(user.id)
+                            }
+                          }
+                        },
+                        [
+                          _vm._v(
+                            "\n                    Cancella\n                  "
+                          )
+                        ]
+                      )
+                    ])
+                  ])
+                }),
+                0
+              )
+            ]),
+            _vm._v(" "),
+            _c("pagination", {
+              attrs: { data: _vm.users },
+              on: { "pagination-change-page": _vm.getResults }
+            })
+          ],
+          1
+        )
       ])
     ]),
     _vm._v(" "),
@@ -654,11 +659,7 @@ var render = function() {
                         }
                       }
                     },
-                    [
-                      _vm._v(
-                        "\n                Conferma Modifica\n              "
-                      )
-                    ]
+                    [_vm._v("\n              Conferma Modifica\n            ")]
                   ),
                   _vm._v(" "),
                   _c(
@@ -667,11 +668,7 @@ var render = function() {
                       staticClass: "btn btn-outline-danger",
                       attrs: { type: "button", "data-dismiss": "modal" }
                     },
-                    [
-                      _vm._v(
-                        "\n                Chiudi Finestra\n              "
-                      )
-                    ]
+                    [_vm._v("\n              Chiudi Finestra\n            ")]
                   )
                 ])
               ]),
@@ -697,9 +694,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Email")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Modifica")]),
-        _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Elimina")])
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Azioni")])
       ])
     ])
   },

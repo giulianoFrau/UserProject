@@ -50,159 +50,27 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
-      users: {},
+      roles: {},
       id: "",
-      name: "",
-      email: "",
-      password: "",
-      editname: "",
-      editemail: ""
+      nome: "",
+      permessi: "",
+      descrizione: ""
     };
   },
   mounted: function mounted() {
-    this.getResults();
+    this.getRoles();
   },
   methods: {
-    saveUser: function saveUser() {
+    getRoles: function getRoles() {
       var _this = this;
 
-      axios.post("save_user", {
-        name: this.name,
-        email: this.email,
-        password: this.password
-      }).then(function (response) {
-        _this.name = "";
-        _this.email = "";
-        _this.password = "";
-
-        _this.getResults();
-      });
-    },
-    getResults: function getResults() {
-      var _this2 = this;
-
       var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
-      axios.get("all_users?page=" + page).then(function (response) {
+      axios.get("all_roles?page=" + page).then(function (response) {
         console.log(response.data);
-        _this2.users = response.data;
-      });
-    },
-    editUser: function editUser(id) {
-      var _this3 = this;
-
-      axios.get("edit_user/" + id).then(function (response) {
-        _this3.id = response.data.id;
-        _this3.editname = response.data.name;
-        _this3.editemail = response.data.email;
-      });
-    },
-    updateUser: function updateUser() {
-      var _this4 = this;
-
-      axios.put("update_user", {
-        id: this.id,
-        name: this.editname,
-        email: this.editemail
-      }).then(function (response) {
-        _this4.getResults();
-      });
-    },
-    deleteUser: function deleteUser(id) {
-      var _this5 = this;
-
-      axios["delete"]("delete_user/" + id).then(function (response) {
-        _this5.getResults();
+        _this.roles = response.data;
       });
     }
   }
@@ -302,9 +170,7 @@ var render = function() {
     _c("div", { staticClass: "row justify-content-center" }, [
       _c("div", { staticClass: "col-md-12" }, [
         _c("div", { staticClass: "card border shadow" }, [
-          _c("div", { staticClass: "card-header" }, [
-            _vm._v("Lista Permessi Registrati :")
-          ]),
+          _c("div", { staticClass: "card-header" }, [_vm._v("Lista Ruoli:")]),
           _vm._v(" "),
           _c(
             "div",
@@ -315,59 +181,15 @@ var render = function() {
                 _vm._v(" "),
                 _c(
                   "tbody",
-                  _vm._l(_vm.users.data, function(user, index) {
-                    return _c("tr", { key: user.id }, [
+                  _vm._l(_vm.roles.data, function(role, index) {
+                    return _c("tr", { key: role.id }, [
                       _c("th", { attrs: { scope: "row" } }, [
                         _vm._v(_vm._s(index + 1))
                       ]),
                       _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(user.name))]),
+                      _c("td", [_vm._v(_vm._s(role.permessi))]),
                       _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(user.email))]),
-                      _vm._v(" "),
-                      _c("td", [
-                        _c(
-                          "button",
-                          {
-                            staticClass: "btn btn-outline-primary",
-                            attrs: {
-                              type: "button",
-                              "data-toggle": "modal",
-                              "data-target": "#exampleModal"
-                            },
-                            on: {
-                              click: function($event) {
-                                return _vm.editUser(user.id)
-                              }
-                            }
-                          },
-                          [
-                            _vm._v(
-                              "\n                    Edit\n                  "
-                            )
-                          ]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("td", [
-                        _c(
-                          "button",
-                          {
-                            staticClass: "btn btn-outline-danger",
-                            attrs: { type: "button" },
-                            on: {
-                              click: function($event) {
-                                return _vm.deleteUser(user.id)
-                              }
-                            }
-                          },
-                          [
-                            _vm._v(
-                              "\n                    Delete\n                  "
-                            )
-                          ]
-                        )
-                      ])
+                      _c("td", [_vm._v(_vm._s(role.descrizione))])
                     ])
                   }),
                   0
@@ -375,135 +197,15 @@ var render = function() {
               ]),
               _vm._v(" "),
               _c("pagination", {
-                attrs: { data: _vm.users },
-                on: { "pagination-change-page": _vm.getResults }
+                attrs: { data: _vm.roles },
+                on: { "pagination-change-page": _vm.getRoles }
               })
             ],
             1
           )
         ])
       ])
-    ]),
-    _vm._v(" "),
-    _c(
-      "div",
-      {
-        staticClass: "modal fade",
-        attrs: {
-          id: "exampleModal",
-          tabindex: "-1",
-          role: "dialog",
-          "aria-labelledby": "exampleModalLabel",
-          "aria-hidden": "true"
-        }
-      },
-      [
-        _c(
-          "div",
-          { staticClass: "modal-dialog", attrs: { role: "document" } },
-          [
-            _c("div", { staticClass: "modal-content" }, [
-              _vm._m(1),
-              _vm._v(" "),
-              _c("div", { staticClass: "modal-body" }, [
-                _c("form", [
-                  _c("div", { staticClass: "form-group" }, [
-                    _c("label", { attrs: { for: "exampleInputEmail1" } }, [
-                      _vm._v("Nome")
-                    ]),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.editname,
-                          expression: "editname"
-                        }
-                      ],
-                      staticClass: "form-control",
-                      attrs: {
-                        type: "text",
-                        id: "exampleInputEmail1",
-                        "aria-describedby": "emailHelp",
-                        placeholder: "Enter name"
-                      },
-                      domProps: { value: _vm.editname },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.editname = $event.target.value
-                        }
-                      }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "form-group" }, [
-                    _c("label", { attrs: { for: "exampleInputPassword1" } }, [
-                      _vm._v("Email")
-                    ]),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.editemail,
-                          expression: "editemail"
-                        }
-                      ],
-                      staticClass: "form-control",
-                      attrs: {
-                        type: "text",
-                        id: "exampleInputPassword1",
-                        placeholder: "email"
-                      },
-                      domProps: { value: _vm.editemail },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.editemail = $event.target.value
-                        }
-                      }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-outline-success",
-                      attrs: { type: "submit", "data-dismiss": "modal" },
-                      on: {
-                        click: function($event) {
-                          $event.preventDefault()
-                          return _vm.updateUser($event)
-                        }
-                      }
-                    },
-                    [_vm._v("\n              Conferma Modifica\n            ")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-outline-danger",
-                      attrs: { type: "button", "data-dismiss": "modal" }
-                    },
-                    [_vm._v("\n              Chiudi Finestra\n            ")]
-                  )
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "modal-footer" })
-            ])
-          ]
-        )
-      ]
-    )
+    ])
   ])
 }
 var staticRenderFns = [
@@ -515,35 +217,10 @@ var staticRenderFns = [
       _c("tr", [
         _c("th", { attrs: { scope: "col" } }, [_vm._v("#")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Permesso")]),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Permessi")]),
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Descrizione")])
       ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "modal-header" }, [
-      _c(
-        "h5",
-        { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
-        [_vm._v("Modifica")]
-      ),
-      _vm._v(" "),
-      _c(
-        "button",
-        {
-          staticClass: "close",
-          attrs: {
-            type: "button",
-            "data-dismiss": "modal",
-            "aria-label": "Close"
-          }
-        },
-        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
-      )
     ])
   }
 ]

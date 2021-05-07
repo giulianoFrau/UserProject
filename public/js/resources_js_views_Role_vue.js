@@ -178,71 +178,84 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
-      users: {},
+      roles: {},
       id: "",
-      name: "",
-      email: "",
-      password: "",
-      editname: "",
-      editemail: ""
+      nome: "",
+      permessi: "",
+      descrizione: "",
+      editnome: "",
+      editpermessi: ""
     };
   },
   mounted: function mounted() {
-    this.getResults();
+    this.getRoles();
   },
   methods: {
-    saveUser: function saveUser() {
+    saveRole: function saveRole() {
       var _this = this;
 
-      axios.post("save_user", {
-        name: this.name,
-        email: this.email,
-        password: this.password
+      axios.post("save_role", {
+        nome: this.nome,
+        permessi: this.permessi,
+        descrizione: this.descrizione
       }).then(function (response) {
-        _this.name = "";
-        _this.email = "";
-        _this.password = "";
+        _this.nome = "";
+        _this.permessi = "";
+        _this.descrizione = "";
 
-        _this.getResults();
+        _this.getRoles();
       });
     },
-    getResults: function getResults() {
+    getRoles: function getRoles() {
       var _this2 = this;
 
       var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
-      axios.get("all_users?page=" + page).then(function (response) {
+      axios.get("all_roles?page=" + page).then(function (response) {
         console.log(response.data);
-        _this2.users = response.data;
+        _this2.roles = response.data;
       });
     },
-    editUser: function editUser(id) {
+    editRole: function editRole(id) {
       var _this3 = this;
 
-      axios.get("edit_user/" + id).then(function (response) {
+      axios.get("edit_role/" + id).then(function (response) {
         _this3.id = response.data.id;
-        _this3.editname = response.data.name;
-        _this3.editemail = response.data.email;
+        _this3.editnome = response.data.nome;
+        _this3.editpermessi = response.data.permessi;
       });
     },
-    updateUser: function updateUser() {
+    updateRole: function updateRole() {
       var _this4 = this;
 
-      axios.put("update_user", {
+      axios.put("update_role", {
         id: this.id,
-        name: this.editname,
-        email: this.editemail
+        nome: this.editnome,
+        permessi: this.editpermessi
       }).then(function (response) {
-        _this4.getResults();
+        _this4.getRoles();
       });
     },
-    deleteUser: function deleteUser(id) {
+    deleteRole: function deleteRole(id) {
       var _this5 = this;
 
-      axios["delete"]("delete_user/" + id).then(function (response) {
-        _this5.getResults();
+      axios["delete"]("delete_role/" + id).then(function (response) {
+        _this5.getRoles();
       });
     }
   }
@@ -343,14 +356,14 @@ var render = function() {
       _c("div", { staticClass: "col-md-6" }, [
         _c("div", { staticClass: "card border shadow" }, [
           _c("div", { staticClass: "card-header" }, [
-            _vm._v("Inserisci un nuovo Ruolo : ")
+            _vm._v("Inserisci un nuovo Ruolo :")
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "card-body" }, [
             _c("form", [
               _c("div", { staticClass: "form-group" }, [
                 _c("label", { attrs: { for: "exampleInputEmail1" } }, [
-                  _vm._v("Nome Ruolo")
+                  _vm._v("Nome")
                 ]),
                 _vm._v(" "),
                 _c("input", {
@@ -358,32 +371,32 @@ var render = function() {
                     {
                       name: "model",
                       rawName: "v-model",
-                      value: _vm.name,
-                      expression: "name"
+                      value: _vm.nome,
+                      expression: "nome"
                     }
                   ],
                   staticClass: "form-control",
                   attrs: {
                     type: "text",
-                    id: "exampleInputEmail1",
+                    id: "nome",
                     "aria-describedby": "emailHelp",
                     placeholder: "Inserisci il nome del ruolo"
                   },
-                  domProps: { value: _vm.name },
+                  domProps: { value: _vm.nome },
                   on: {
                     input: function($event) {
                       if ($event.target.composing) {
                         return
                       }
-                      _vm.name = $event.target.value
+                      _vm.nome = $event.target.value
                     }
                   }
                 })
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "form-group" }, [
-                _c("label", { attrs: { for: "exampleInputPassword1" } }, [
-                  _vm._v("Permesso")
+                _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+                  _vm._v("Permessi")
                 ]),
                 _vm._v(" "),
                 _c("input", {
@@ -391,23 +404,57 @@ var render = function() {
                     {
                       name: "model",
                       rawName: "v-model",
-                      value: _vm.email,
-                      expression: "email"
+                      value: _vm.permessi,
+                      expression: "permessi"
                     }
                   ],
                   staticClass: "form-control",
                   attrs: {
                     type: "text",
-                    id: "exampleInputPassword1",
-                    placeholder: "Inserisci il tipo di permesso"
+                    id: "permessi",
+                    "aria-describedby": "emailHelp",
+                    placeholder: "Inserisci il permesso"
                   },
-                  domProps: { value: _vm.email },
+                  domProps: { value: _vm.permessi },
                   on: {
                     input: function($event) {
                       if ($event.target.composing) {
                         return
                       }
-                      _vm.email = $event.target.value
+                      _vm.permessi = $event.target.value
+                    }
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-group" }, [
+                _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+                  _vm._v("Descrizione")
+                ]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.descrizione,
+                      expression: "descrizione"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: {
+                    type: "text",
+                    id: "descrizione",
+                    "aria-describedby": "emailHelp",
+                    placeholder: "Inserisci la  descrizione ruolo"
+                  },
+                  domProps: { value: _vm.descrizione },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.descrizione = $event.target.value
                     }
                   }
                 })
@@ -421,99 +468,99 @@ var render = function() {
                   on: {
                     click: function($event) {
                       $event.preventDefault()
-                      return _vm.saveUser($event)
+                      return _vm.saveRole($event)
                     }
                   }
                 },
-                [_vm._v("\n                Inserisci\n              ")]
+                [_vm._v("\n              Inserisci\n            ")]
               )
             ])
           ])
         ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-md-6" }, [
-        _c("div", { staticClass: "card border shadow" }, [
-          _c("div", { staticClass: "card-header" }, [_vm._v("Lista Ruoli :")]),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "card-body" },
-            [
-              _c("table", { staticClass: "table table-dark" }, [
-                _vm._m(0),
-                _vm._v(" "),
-                _c(
-                  "tbody",
-                  _vm._l(_vm.users.data, function(user, index) {
-                    return _c("tr", { key: user.id }, [
-                      _c("th", { attrs: { scope: "row" } }, [
-                        _vm._v(_vm._s(index + 1))
-                      ]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(user.name))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(user.email))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(user.email))]),
-                      _vm._v(" "),
-                      _c("td", [
-                        _c(
-                          "button",
-                          {
-                            staticClass: "btn btn-outline-primary",
-                            attrs: {
-                              type: "button",
-                              "data-toggle": "modal",
-                              "data-target": "#exampleModal"
-                            },
-                            on: {
-                              click: function($event) {
-                                return _vm.editUser(user.id)
-                              }
-                            }
-                          },
-                          [
-                            _vm._v(
-                              "\n                      Edit\n                    "
-                            )
-                          ]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("td", [
-                        _c(
-                          "button",
-                          {
-                            staticClass: "btn btn-outline-danger",
-                            attrs: { type: "button" },
-                            on: {
-                              click: function($event) {
-                                return _vm.deleteUser(user.id)
-                              }
-                            }
-                          },
-                          [
-                            _vm._v(
-                              "\n                      Delete\n                    "
-                            )
-                          ]
-                        )
-                      ])
-                    ])
-                  }),
-                  0
-                )
-              ]),
+      ])
+    ]),
+    _vm._v(" "),
+    _c("br"),
+    _vm._v(" "),
+    _c("div", { staticClass: "col-md-12" }, [
+      _c("div", { staticClass: "card border shadow" }, [
+        _c("div", { staticClass: "card-header" }, [_vm._v("Lista Ruoli:")]),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "card-body" },
+          [
+            _c("table", { staticClass: "table table-dark" }, [
+              _vm._m(0),
               _vm._v(" "),
-              _c("pagination", {
-                attrs: { data: _vm.users },
-                on: { "pagination-change-page": _vm.getResults }
-              })
-            ],
-            1
-          )
-        ])
+              _c(
+                "tbody",
+                _vm._l(_vm.roles.data, function(role, index) {
+                  return _c("tr", { key: role.id }, [
+                    _c("th", { attrs: { scope: "row" } }, [
+                      _vm._v(_vm._s(index + 1))
+                    ]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(role.nome))]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(role.permessi))]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-outline-primary",
+                          attrs: {
+                            type: "button",
+                            "data-toggle": "modal",
+                            "data-target": "#exampleModal"
+                          },
+                          on: {
+                            click: function($event) {
+                              return _vm.editRole(role.id)
+                            }
+                          }
+                        },
+                        [
+                          _vm._v(
+                            "\n                    Modifica\n                  "
+                          )
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-outline-danger",
+                          attrs: { type: "button" },
+                          on: {
+                            click: function($event) {
+                              return _vm.deleteRole(role.id)
+                            }
+                          }
+                        },
+                        [
+                          _vm._v(
+                            "\n                    Cancella\n                  "
+                          )
+                        ]
+                      )
+                    ])
+                  ])
+                }),
+                0
+              )
+            ]),
+            _vm._v(" "),
+            _c("pagination", {
+              attrs: { data: _vm.roles },
+              on: { "pagination-change-page": _vm.getRoles }
+            })
+          ],
+          1
+        )
       ])
     ]),
     _vm._v(" "),
@@ -541,7 +588,7 @@ var render = function() {
                 _c("form", [
                   _c("div", { staticClass: "form-group" }, [
                     _c("label", { attrs: { for: "exampleInputEmail1" } }, [
-                      _vm._v("Nome")
+                      _vm._v("Nome Ruolo")
                     ]),
                     _vm._v(" "),
                     _c("input", {
@@ -549,8 +596,8 @@ var render = function() {
                         {
                           name: "model",
                           rawName: "v-model",
-                          value: _vm.editname,
-                          expression: "editname"
+                          value: _vm.editnome,
+                          expression: "editnome"
                         }
                       ],
                       staticClass: "form-control",
@@ -558,15 +605,15 @@ var render = function() {
                         type: "text",
                         id: "exampleInputEmail1",
                         "aria-describedby": "emailHelp",
-                        placeholder: "Enter name"
+                        placeholder: "Modifica nome ruolo"
                       },
-                      domProps: { value: _vm.editname },
+                      domProps: { value: _vm.editnome },
                       on: {
                         input: function($event) {
                           if ($event.target.composing) {
                             return
                           }
-                          _vm.editname = $event.target.value
+                          _vm.editnome = $event.target.value
                         }
                       }
                     })
@@ -574,7 +621,7 @@ var render = function() {
                   _vm._v(" "),
                   _c("div", { staticClass: "form-group" }, [
                     _c("label", { attrs: { for: "exampleInputPassword1" } }, [
-                      _vm._v("Email")
+                      _vm._v("Permessi")
                     ]),
                     _vm._v(" "),
                     _c("input", {
@@ -582,23 +629,23 @@ var render = function() {
                         {
                           name: "model",
                           rawName: "v-model",
-                          value: _vm.editemail,
-                          expression: "editemail"
+                          value: _vm.editpermessi,
+                          expression: "editpermessi"
                         }
                       ],
                       staticClass: "form-control",
                       attrs: {
                         type: "text",
                         id: "exampleInputPassword1",
-                        placeholder: "email"
+                        placeholder: "Modifica permessi"
                       },
-                      domProps: { value: _vm.editemail },
+                      domProps: { value: _vm.editpermessi },
                       on: {
                         input: function($event) {
                           if ($event.target.composing) {
                             return
                           }
-                          _vm.editemail = $event.target.value
+                          _vm.editpermessi = $event.target.value
                         }
                       }
                     })
@@ -612,15 +659,11 @@ var render = function() {
                       on: {
                         click: function($event) {
                           $event.preventDefault()
-                          return _vm.updateUser($event)
+                          return _vm.updateRole($event)
                         }
                       }
                     },
-                    [
-                      _vm._v(
-                        "\n                Conferma Modifica\n              "
-                      )
-                    ]
+                    [_vm._v("\n              Conferma Modifica\n            ")]
                   ),
                   _vm._v(" "),
                   _c(
@@ -629,11 +672,7 @@ var render = function() {
                       staticClass: "btn btn-outline-danger",
                       attrs: { type: "button", "data-dismiss": "modal" }
                     },
-                    [
-                      _vm._v(
-                        "\n                Chiudi Finestra\n              "
-                      )
-                    ]
+                    [_vm._v("\n              Chiudi Finestra\n            ")]
                   )
                 ])
               ]),
@@ -655,9 +694,9 @@ var staticRenderFns = [
       _c("tr", [
         _c("th", { attrs: { scope: "col" } }, [_vm._v("#")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Nome Ruolo")]),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Ruolo")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Permesso")]),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Permessi")]),
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Azioni")])
       ])
