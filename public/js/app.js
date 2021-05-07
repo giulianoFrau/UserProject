@@ -38499,15 +38499,6 @@ var staticRenderFns = [
         ]),
         _vm._v(" "),
         _c(
-          "button",
-          {
-            staticClass: "btn btn-link btn-sm order-1 order-lg-0",
-            attrs: { id: "sidebarToggle", href: "#" }
-          },
-          [_c("i", { staticClass: "fas fa-bars" })]
-        ),
-        _vm._v(" "),
-        _c(
           "form",
           {
             staticClass:
