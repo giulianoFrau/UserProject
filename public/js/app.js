@@ -2010,6 +2010,22 @@ var routes = [{
     return __webpack_require__.e(/*! import() */ "resources_js_views_CrudApp_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./views/CrudApp.vue */ "./resources/js/views/CrudApp.vue"));
   } // Vue we just created
 
+}, {
+  // new route for our categories page
+  path: '/login',
+  name: 'login',
+  component: function component() {
+    return __webpack_require__.e(/*! import() */ "resources_js_views_Login_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./views/Login.vue */ "./resources/js/views/Login.vue"));
+  } // Vue we just created
+
+}, {
+  // new route for our categories page
+  path: '/register',
+  name: 'register',
+  component: function component() {
+    return __webpack_require__.e(/*! import() */ "resources_js_views_Register_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./views/Register.vue */ "./resources/js/views/Register.vue"));
+  } // Vue we just created
+
 }];
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_2__.default({
   routes: routes,
@@ -38671,6 +38687,40 @@ var render = function() {
         )
       ],
       1
+    ),
+    _vm._v(" "),
+    _c(
+      "li",
+      { staticClass: "nav-item" },
+      [
+        _c(
+          "router-link",
+          { staticClass: "nav-link", attrs: { to: "/login", exact: "" } },
+          [
+            _c("i", { staticClass: "fas fa-fw fa-chart-area" }),
+            _vm._v(" "),
+            _c("span", [_vm._v("Login")])
+          ]
+        )
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c(
+      "li",
+      { staticClass: "nav-item" },
+      [
+        _c(
+          "router-link",
+          { staticClass: "nav-link", attrs: { to: "/register", exact: "" } },
+          [
+            _c("i", { staticClass: "fas fa-fw fa-chart-area" }),
+            _vm._v(" "),
+            _c("span", [_vm._v("Register")])
+          ]
+        )
+      ],
+      1
     )
   ])
 }
@@ -54522,7 +54572,7 @@ Vue.compile = compileToFunctions;
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if ({"resources_js_views_List_vue":1,"resources_js_views_Role_vue":1,"resources_js_views_CrudApp_vue":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			if ({"resources_js_views_List_vue":1,"resources_js_views_Role_vue":1,"resources_js_views_CrudApp_vue":1,"resources_js_views_Login_vue":1,"resources_js_views_Register_vue":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};

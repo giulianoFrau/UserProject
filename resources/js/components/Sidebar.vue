@@ -25,6 +25,18 @@
                 <span>Lista Permessi</span>
             </router-link>
         </li>
+        	<li class="nav-item">
+            <router-link to="/login" class="nav-link" exact>
+                <i class="fas fa-fw fa-chart-area"></i>
+                <span>Login</span>
+            </router-link>
+        </li>
+        	<li class="nav-item">
+            <router-link to="/register" class="nav-link" exact>
+                <i class="fas fa-fw fa-chart-area"></i>
+                <span>Register</span>
+            </router-link>
+        </li>
        
 	</ul>
 </template>

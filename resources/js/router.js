@@ -27,6 +27,16 @@ const routes = [
         name: 'crud',
         component: () => import('./views/CrudApp.vue'), // Vue we just created
     },
+    { // new route for our categories page
+        path: '/login',
+        name: 'login',
+        component: () => import('./views/Login.vue'), // Vue we just created
+    },
+    { // new route for our categories page
+        path: '/register',
+        name: 'register',
+        component: () => import('./views/Register.vue'), // Vue we just created
+    },
 ];
 const router = new Router({
     routes: routes,
