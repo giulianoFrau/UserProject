@@ -47,8 +47,7 @@
 <script>
 import Router from '../router.js';
 export default {
- 
- name:'Login',
+
  data() {
     return {
    
@@ -59,33 +58,21 @@ export default {
   mounted() {
  
   },
-  methods: {
    methods: {
 login() {
-  if (this.username == "" || this.password == "") {
-    this.errorMessage = "Tolts ki minden mezot";
-  } else {
+
     axios
-      .post("http://127.0.0.1:8000/api/user/login", {
-        username: this.username,
+      .post("login", {
+        email: this.email,
         password: this.password,
-        remember: this.remember,
+        
       })
       .then((response) => {
-        if (response.data == 1) {
+       
           Router.push({ name: "list" });
-        }
+        
       })
-      .catch(function (error) {
-        console.log(error);
-      })
-      .finally(() => (this.loading = false));
   }
 },
-
-
-
-},
-  },
 };
 </script>
