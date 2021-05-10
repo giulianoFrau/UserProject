@@ -69,7 +69,7 @@ login() {
       })
       .then((response) => {
        
-          Router.push({ name: "list" });
+          Router.push({ name: "userPage" });
         
       })
   }

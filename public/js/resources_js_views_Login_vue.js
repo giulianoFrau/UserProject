@@ -74,7 +74,7 @@ __webpack_require__.r(__webpack_exports__);
         password: this.password
       }).then(function (response) {
         _router_js__WEBPACK_IMPORTED_MODULE_0__.default.push({
-          name: "list"
+          name: "userPage"
         });
       });
     }

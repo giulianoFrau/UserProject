@@ -1,10 +1,11 @@
 <!-- App.vue -->
 <template>
+
 	<div>
 		<Header />
 
 		<div id="wrapper">
-			<Sidebar />
+			<Sidebar v-if="!$route.meta.hideNavbar"/>
 
 			<div id="content-wrapper">
 				<router-view></router-view> <!-- container-fluid div Replaced by router-view -->

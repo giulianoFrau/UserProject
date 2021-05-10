@@ -37,6 +37,14 @@ const routes = [
         name: 'register',
         component: () => import('./views/Register.vue'), // Vue we just created
     },
+    { // new route for our categories page
+        path: '/userPage',
+        name: 'userPage',
+        component: () => import('./UserPage.vue'), // Vue we just created
+        meta: {
+            hideNavbar: true,
+           }
+    },
 ];
 const router = new Router({
     routes: routes,
