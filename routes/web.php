@@ -39,3 +39,5 @@ Route::get('edit_role/{id}', [RoleController::class, 'edit_role']);
 Route::put('update_role', [RoleController::class, 'update_role']);
 Route::delete('delete_role/{id}', [RoleController::class, 'delete_role']);
 
+
+Route::post('login', [LoginController::class, 'login']);
