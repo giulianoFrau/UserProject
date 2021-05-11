@@ -58,6 +58,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
@@ -197,7 +201,7 @@ var render = function() {
               [
                 _c("div", { staticClass: "form-group" }, [
                   _c("label", { attrs: { for: "exampleInputEmail1" } }, [
-                    _vm._v("email")
+                    _vm._v("Email")
                   ]),
                   _vm._v(" "),
                   _c("input", {
@@ -246,7 +250,7 @@ var render = function() {
                     attrs: {
                       type: "text",
                       id: "exampleInputPassword1",
-                      placeholder: "Inserisci la tua email"
+                      placeholder: "Inserisci la tua password"
                     },
                     domProps: { value: _vm.password },
                     on: {
@@ -275,7 +279,13 @@ var render = function() {
                   [_vm._v("\n              Login\n            ")]
                 )
               ]
-            )
+            ),
+            _vm._v(" "),
+            _c("br"),
+            _vm._v(" "),
+            _c("a", { attrs: { href: "#/register" } }, [
+              _vm._v("Nuovo utente? clicca qui per registrarti")
+            ])
           ])
         ])
       ])

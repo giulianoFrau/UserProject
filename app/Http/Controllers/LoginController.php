@@ -21,4 +21,5 @@ class LoginController extends Controller
         return true;
     }
 }
+
 }

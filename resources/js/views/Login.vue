@@ -8,7 +8,7 @@
           <div class="card-body">
             <form @submit.prevent="handleSubmit">
               <div class="form-group">
-                <label for="exampleInputEmail1">email</label>
+                <label for="exampleInputEmail1">Email</label>
                 <input
                   type="text"
                   class="form-control"
@@ -25,7 +25,7 @@
                   class="form-control"
                   v-model="password"
                   id="exampleInputPassword1"
-                  placeholder="Inserisci la tua email"
+                  placeholder="Inserisci la tua password"
                 />
               </div>
               <button
@@ -35,7 +35,11 @@
               >
                 Login
               </button>
+
+              
             </form>
+            <br>
+            <a href="#/register">Nuovo utente? clicca qui per registrarti</a>
           </div>
         </div>
       </div>
@@ -77,6 +81,7 @@ login() {
       })
       .finally(() => (this.loading = false));
   }
+  
 },
 };
 </script>

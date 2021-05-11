@@ -38585,6 +38585,23 @@ var render = function() {
       [
         _c(
           "router-link",
+          { staticClass: "nav-link", attrs: { to: "/login", exact: "" } },
+          [
+            _c("i", { staticClass: "fas fa-fw fa-chart-area" }),
+            _vm._v(" "),
+            _c("span", [_vm._v("Login")])
+          ]
+        )
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c(
+      "li",
+      { staticClass: "nav-item" },
+      [
+        _c(
+          "router-link",
           { staticClass: "nav-link", attrs: { to: "/home", exact: "" } },
           [
             _c("i", { staticClass: "fas fa-fw fa-tachometer-alt" }),
@@ -38640,41 +38657,7 @@ var render = function() {
           [
             _c("i", { staticClass: "fas fa-fw fa-chart-area" }),
             _vm._v(" "),
-            _c("span", [_vm._v("Lista Permessi")])
-          ]
-        )
-      ],
-      1
-    ),
-    _vm._v(" "),
-    _c(
-      "li",
-      { staticClass: "nav-item" },
-      [
-        _c(
-          "router-link",
-          { staticClass: "nav-link", attrs: { to: "/login", exact: "" } },
-          [
-            _c("i", { staticClass: "fas fa-fw fa-chart-area" }),
-            _vm._v(" "),
-            _c("span", [_vm._v("Login")])
-          ]
-        )
-      ],
-      1
-    ),
-    _vm._v(" "),
-    _c(
-      "li",
-      { staticClass: "nav-item" },
-      [
-        _c(
-          "router-link",
-          { staticClass: "nav-link", attrs: { to: "/register", exact: "" } },
-          [
-            _c("i", { staticClass: "fas fa-fw fa-chart-area" }),
-            _vm._v(" "),
-            _c("span", [_vm._v("Register")])
+            _c("span", [_vm._v("Permessi")])
           ]
         )
       ],
