@@ -38522,9 +38522,7 @@ var staticRenderFns = [
       "nav",
       { staticClass: "sb-topnav navbar navbar-expand navbar-dark bg-dark" },
       [
-        _c("a", { staticClass: "navbar-brand", attrs: { href: "" } }, [
-          _vm._v("Benvenuto!")
-        ]),
+        _c("a", { staticClass: "navbar-brand" }, [_vm._v("Benvenuto!")]),
         _vm._v(" "),
         _c(
           "form",
