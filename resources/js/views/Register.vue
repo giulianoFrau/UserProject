@@ -46,6 +46,7 @@
               >
                 Registrati
               </button>
+              <p>* Se non riesci ad andare avanti, il tuo nome o la tua email esistono già</p>
             </form>
           </div>
         </div>

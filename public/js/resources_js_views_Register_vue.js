@@ -68,6 +68,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
@@ -303,7 +304,13 @@ var render = function() {
                   }
                 },
                 [_vm._v("\n              Registrati\n            ")]
-              )
+              ),
+              _vm._v(" "),
+              _c("p", [
+                _vm._v(
+                  "* Se non riesci ad andare avanti, il tuo nome o la tua email esistono già"
+                )
+              ])
             ])
           ])
         ])
