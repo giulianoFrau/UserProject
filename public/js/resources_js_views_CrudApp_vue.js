@@ -216,6 +216,7 @@ __webpack_require__.r(__webpack_exports__);
         _this.name = "";
         _this.email = "";
         _this.password = "";
+        alert('Utente registrato con successo');
 
         _this.getResults();
       });
@@ -254,6 +255,8 @@ __webpack_require__.r(__webpack_exports__);
 
       axios["delete"]("delete_user/" + id).then(function (response) {
         _this5.getResults();
+
+        alert('Utente Cancellato');
       });
     }
   }

@@ -67,11 +67,15 @@ login() {
         password: this.password,
         
       })
-      .then((response) => {
+     .then((response) => {
        
           Router.push({ name: "userPage" });
         
       })
+      .catch(function (error) {
+        console.log(error);
+      })
+      .finally(() => (this.loading = false));
   }
 },
 };

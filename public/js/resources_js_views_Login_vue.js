@@ -69,6 +69,8 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {},
   methods: {
     login: function login() {
+      var _this = this;
+
       axios.post("login", {
         email: this.email,
         password: this.password
@@ -76,6 +78,10 @@ __webpack_require__.r(__webpack_exports__);
         _router_js__WEBPACK_IMPORTED_MODULE_0__.default.push({
           name: "userPage"
         });
+      })["catch"](function (error) {
+        console.log(error);
+      })["finally"](function () {
+        return _this.loading = false;
       });
     }
   }

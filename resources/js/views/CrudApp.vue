@@ -204,6 +204,7 @@ export default {
           this.name = "";
           this.email = "";
           this.password = "";
+          alert('Utente registrato con successo')
           this.getResults();
         });
     },
@@ -238,6 +239,7 @@ export default {
     deleteUser(id) {
       axios.delete("delete_user/" + id).then((response) => {
         this.getResults();
+        alert('Utente Cancellato');
       });
     },
   },
