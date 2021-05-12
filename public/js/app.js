@@ -1984,7 +1984,7 @@ __webpack_require__.r(__webpack_exports__);
 
 vue__WEBPACK_IMPORTED_MODULE_1__.default.use(vue_router__WEBPACK_IMPORTED_MODULE_2__.default);
 var routes = [{
-  path: '/home',
+  path: '/',
   name: 'welcome',
   component: _views_Welcome_vue__WEBPACK_IMPORTED_MODULE_0__.default
 }, {
@@ -38522,7 +38522,7 @@ var staticRenderFns = [
       "nav",
       { staticClass: "sb-topnav navbar navbar-expand navbar-dark bg-dark" },
       [
-        _c("a", { staticClass: "navbar-brand" }, [_vm._v("Benvenuto!")]),
+        _c("a", { staticClass: "navbar-brand" }, [_vm._v("Benvenuto !")]),
         _vm._v(" "),
         _c(
           "form",
@@ -38551,7 +38551,86 @@ var staticRenderFns = [
               ])
             ])
           ]
-        )
+        ),
+        _vm._v(" "),
+        _c("ul", { staticClass: "navbar-nav ml-auto ml-md-0" }, [
+          _c("li", { staticClass: "nav-item dropdown" }, [
+            _c(
+              "a",
+              {
+                staticClass: "nav-link dropdown-toggle",
+                attrs: {
+                  id: "userDropdown",
+                  href: "#",
+                  role: "button",
+                  "data-toggle": "dropdown",
+                  "aria-haspopup": "true",
+                  "aria-expanded": "false"
+                }
+              },
+              [_c("i", { staticClass: "fas fa-bars" })]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "dropdown-menu dropdown-menu-right",
+                attrs: { "aria-labelledby": "userDropdown" }
+              },
+              [
+                _c(
+                  "a",
+                  {
+                    staticClass: "dropdown-item",
+                    attrs: {
+                      target: "_blank",
+                      href: "https://laravel.com/docs/8.x/installation"
+                    }
+                  },
+                  [_vm._v("Laravel 8")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "a",
+                  {
+                    staticClass: "dropdown-item",
+                    attrs: {
+                      target: "_blank",
+                      href: "https://vuejs.org/v2/guide/"
+                    }
+                  },
+                  [_vm._v("VUE")]
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "dropdown-divider" }),
+                _vm._v(" "),
+                _c(
+                  "a",
+                  {
+                    staticClass: "dropdown-item",
+                    attrs: {
+                      target: "_blank",
+                      href: "https://router.vuejs.org/"
+                    }
+                  },
+                  [_vm._v("Vue Router")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "a",
+                  {
+                    staticClass: "dropdown-item",
+                    attrs: {
+                      target: "_blank",
+                      href: "https://getbootstrap.com/"
+                    }
+                  },
+                  [_vm._v("Bootstrap")]
+                )
+              ]
+            )
+          ])
+        ])
       ]
     )
   }
@@ -38602,7 +38681,7 @@ var render = function() {
       [
         _c(
           "router-link",
-          { staticClass: "nav-link", attrs: { to: "/home", exact: "" } },
+          { staticClass: "nav-link", attrs: { to: "/", exact: "" } },
           [
             _c("i", { staticClass: "fas fa-fw fa-tachometer-alt" }),
             _vm._v(" "),

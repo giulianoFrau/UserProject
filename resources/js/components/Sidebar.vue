@@ -10,7 +10,7 @@
         </li>
 
 		<li class="nav-item">
-            <router-link to="/home" class="nav-link" exact>
+            <router-link to="/" class="nav-link" exact>
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>Homepage</span>
             </router-link>
