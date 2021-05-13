@@ -214,7 +214,7 @@ __webpack_require__.r(__webpack_exports__);
         _this.$fire({
           text: "Utente registrato con successo!",
           type: "success",
-          timer: 2500
+          timer: 1500
         });
 
         _this.getResults();
@@ -264,7 +264,7 @@ __webpack_require__.r(__webpack_exports__);
         _this5.$fire({
           text: "Utente cancellato!",
           type: "error",
-          timer: 2500
+          timer: 1500
         });
       });
     }
@@ -454,7 +454,7 @@ var render = function() {
                   ],
                   staticClass: "form-control",
                   attrs: {
-                    type: "text",
+                    type: "password",
                     required: "",
                     id: "exampleInputPassword1",
                     placeholder: "Inserisci la tua Password"

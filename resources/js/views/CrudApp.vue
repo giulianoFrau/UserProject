@@ -32,7 +32,7 @@
               <div class="form-group">
                 <label for="exampleInputPassword1">Password</label>
                 <input
-                  type="text"
+                  type="password"
                   class="form-control"
                   v-model="password"
                   required
@@ -201,7 +201,7 @@ export default {
           this.$fire({
             text: "Utente registrato con successo!",
             type: "success",
-            timer: 2500,
+            timer: 1500,
           });
           this.getResults();
         });
@@ -241,7 +241,7 @@ export default {
         this.$fire({
           text: "Utente cancellato!",
           type: "error",
-          timer: 2500,
+          timer: 1500,
         });
       });
     },

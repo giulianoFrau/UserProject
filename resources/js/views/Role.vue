@@ -204,7 +204,7 @@ export default {
           this.$fire({
             text: "Ruolo registrato con successo!",
             type: "success",
-            timer: 2500,
+            timer: 1500,
           });
           this.getRoles();
         });
@@ -244,7 +244,7 @@ export default {
         this.$fire({
           text: "Ruolo cancellato!",
           type: "error",
-          timer: 2500,
+          timer: 1500,
         });
       });
     },

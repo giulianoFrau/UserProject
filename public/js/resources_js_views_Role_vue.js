@@ -217,7 +217,7 @@ __webpack_require__.r(__webpack_exports__);
         _this.$fire({
           text: "Ruolo registrato con successo!",
           type: "success",
-          timer: 2500
+          timer: 1500
         });
 
         _this.getRoles();
@@ -267,7 +267,7 @@ __webpack_require__.r(__webpack_exports__);
         _this5.$fire({
           text: "Ruolo cancellato!",
           type: "error",
-          timer: 2500
+          timer: 1500
         });
       });
     }
