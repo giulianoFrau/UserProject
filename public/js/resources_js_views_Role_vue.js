@@ -193,6 +193,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -220,7 +221,12 @@ __webpack_require__.r(__webpack_exports__);
         _this.nome = "";
         _this.permessi = "";
         _this.descrizione = "";
-        alert("Ruolo inserito con successo");
+
+        _this.$fire({
+          text: "Ruolo registrato con successo!",
+          type: "success",
+          timer: 2500
+        });
 
         _this.getRoles();
       });
@@ -260,7 +266,11 @@ __webpack_require__.r(__webpack_exports__);
       axios["delete"]("delete_role/" + id).then(function (response) {
         _this5.getRoles();
 
-        alert('Ruolo Cancellato');
+        _this5.$fire({
+          text: "Ruolo cancellato!",
+          type: "error",
+          timer: 2500
+        });
       });
     }
   }
@@ -534,7 +544,7 @@ var render = function() {
                         },
                         [
                           _vm._v(
-                            "\n                    Modifica\n                  "
+                            "\n                  Modifica\n                "
                           )
                         ]
                       )
@@ -554,7 +564,7 @@ var render = function() {
                         },
                         [
                           _vm._v(
-                            "\n                    Cancella\n                  "
+                            "\n                  Cancella\n                "
                           )
                         ]
                       )

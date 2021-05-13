@@ -12,7 +12,8 @@
                 <input
                   type="text"
                   class="form-control"
-                  v-model="nome" required
+                  v-model="nome"
+                  required
                   id="nome"
                   aria-describedby="emailHelp"
                   placeholder="Inserisci il nome del ruolo"
@@ -23,7 +24,8 @@
                 <input
                   type="text"
                   class="form-control"
-                  v-model="permessi" required
+                  v-model="permessi"
+                  required
                   id="permessi"
                   aria-describedby="emailHelp"
                   placeholder="Inserisci il permesso"
@@ -34,7 +36,8 @@
                 <input
                   type="text"
                   class="form-control"
-                  v-model="descrizione" required
+                  v-model="descrizione"
+                  required
                   id="descrizione"
                   aria-describedby="emailHelp"
                   placeholder="Inserisci la  descrizione ruolo"
@@ -43,7 +46,7 @@
 
               <button
                 type="submit"
-                 :disabled="!nome ||!permessi || !descrizione"
+                :disabled="!nome || !permessi || !descrizione"
                 @click.prevent="saveRole"
                 class="btn btn-outline-success"
               >
@@ -53,61 +56,59 @@
           </div>
         </div>
       </div>
-          </div>
-          <br>
+    </div>
+    <br />
 
-      <div class="col-md-12">
-        <div class="card border shadow">
-          <div class="card-header">Lista Ruoli:</div>
-          <div class="card-body">
-            <table class="table table-dark">
-              <thead>
-                <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">Ruolo</th>
-                  <th scope="col">Permessi</th>
-                  <th scope="col">Azioni</th>
-                </tr>
-              </thead>
-              <tbody>
+    <div class="col-md-12">
+      <div class="card border shadow">
+        <div class="card-header">Lista Ruoli:</div>
+        <div class="card-body">
+          <table class="table table-dark">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Ruolo</th>
+                <th scope="col">Permessi</th>
+                <th scope="col">Azioni</th>
+              </tr>
+            </thead>
+            <tbody>
               <tr v-for="(role, index) in roles.data" :key="role.id">
-                  <th scope="row">{{ index + 1 }}</th>
-                  <td>{{ role.nome }}</td>
-                  <td>{{ role.permessi }}</td>
-           
-                  <td>
-                    <button
-                      type="button"
-                      class="btn btn-outline-primary"
-                      @click="editRole(role.id)"
-                      data-toggle="modal"
-                      data-target="#exampleModal"
-                    >
-                      Modifica
-                    </button>
-                  </td>
+                <th scope="row">{{ index + 1 }}</th>
+                <td>{{ role.nome }}</td>
+                <td>{{ role.permessi }}</td>
 
-                  <td>
-                    <button
-                      type="button"
-                      class="btn btn-outline-danger"
-                      @click="deleteRole(role.id)"
-                    >
-                      Cancella
-                    </button>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-            <pagination
-              :data="roles"
-              @pagination-change-page="getRoles"
-            ></pagination>
-          </div>
+                <td>
+                  <button
+                    type="button"
+                    class="btn btn-outline-primary"
+                    @click="editRole(role.id)"
+                    data-toggle="modal"
+                    data-target="#exampleModal"
+                  >
+                    Modifica
+                  </button>
+                </td>
+
+                <td>
+                  <button
+                    type="button"
+                    class="btn btn-outline-danger"
+                    @click="deleteRole(role.id)"
+                  >
+                    Cancella
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <pagination
+            :data="roles"
+            @pagination-change-page="getRoles"
+          ></pagination>
         </div>
       </div>
-   
-
+    </div>
 
     <!-- Modal -->
     <div
@@ -208,7 +209,11 @@ export default {
           this.nome = "";
           this.permessi = "";
           this.descrizione = "";
-          alert("Ruolo inserito con successo")
+          this.$fire({  
+            text: "Ruolo registrato con successo!",
+            type: "success",
+            timer: 2500,
+          })
           this.getRoles();
         });
     },
@@ -218,10 +223,8 @@ export default {
         this.roles = response.data;
       });
     },
-    
 
-
- editRole(id) {
+    editRole(id) {
       axios.get("edit_role/" + id).then((response) => {
         this.id = response.data.id;
         this.editnome = response.data.nome;
@@ -244,7 +247,11 @@ export default {
     deleteRole(id) {
       axios.delete("delete_role/" + id).then((response) => {
         this.getRoles();
-          alert('Ruolo Cancellato');
+        this.$fire({  
+            text: "Ruolo cancellato!",
+            type: "error",
+            timer: 2500,
+          })
       });
     },
   },

@@ -217,7 +217,12 @@ __webpack_require__.r(__webpack_exports__);
         _this.name = "";
         _this.email = "";
         _this.password = "";
-        alert('Utente registrato con successo');
+
+        _this.$fire({
+          text: "Utente registrato con successo!",
+          type: "success",
+          timer: 2500
+        });
 
         _this.getResults();
       });
@@ -257,7 +262,11 @@ __webpack_require__.r(__webpack_exports__);
       axios["delete"]("delete_user/" + id).then(function (response) {
         _this5.getResults();
 
-        alert('Utente Cancellato');
+        _this5.$fire({
+          text: "Utente cancellato!",
+          type: "error",
+          timer: 2500
+        });
       });
     }
   }

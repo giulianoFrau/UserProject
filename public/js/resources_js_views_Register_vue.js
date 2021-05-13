@@ -84,11 +84,19 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {},
   methods: {
     saveUser: function saveUser() {
+      var _this = this;
+
       axios.post("save_user", {
         name: this.name,
         email: this.email,
         password: this.password
       }).then(function (response) {
+        _this.$fire({
+          text: "Registazione completata!",
+          type: "success",
+          timer: 1500
+        });
+
         _router_js__WEBPACK_IMPORTED_MODULE_0__.default.push({
           name: "login"
         });

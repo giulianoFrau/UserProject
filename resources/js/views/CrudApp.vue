@@ -205,7 +205,11 @@ export default {
           this.name = "";
           this.email = "";
           this.password = "";
-          alert('Utente registrato con successo')
+           this.$fire({  
+            text: "Utente registrato con successo!",
+            type: "success",
+            timer: 2500,
+          })
           this.getResults();
         });
     },
@@ -240,7 +244,11 @@ export default {
     deleteUser(id) {
       axios.delete("delete_user/" + id).then((response) => {
         this.getResults();
-        alert('Utente Cancellato');
+  this.$fire({  
+            text: "Utente cancellato!",
+            type: "error",
+            timer: 2500,
+          })
       });
     },
   },

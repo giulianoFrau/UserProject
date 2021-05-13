@@ -78,6 +78,11 @@ export default {
           password: this.password,
         })
         .then((response) => {
+           this.$fire({  
+            text: "Registazione completata!",
+            type: "success",
+            timer: 1500,
+          })
           Router.push({ name: "login" });
         });
     },

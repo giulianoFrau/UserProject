@@ -10,6 +10,7 @@ class RoleController extends Controller
 {
     public function save_role()
     {
+        
         $role = new Role;
         $role->nome = request()->nome;
         $role->permessi = request()->permessi;
