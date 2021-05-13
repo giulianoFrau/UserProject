@@ -13,7 +13,6 @@
           target="_blank"
           ><i class="fab fa-facebook-f"></i
         ></a>
-
         <!-- Twitter -->
         <a
           class="btn btn-link btn-floating btn-lg text-dark m-1"
@@ -23,7 +22,6 @@
           data-mdb-ripple-color="dark"
           ><i class="fab fa-twitter"></i
         ></a>
-
         <!-- Google -->
         <a
           class="btn btn-link btn-floating btn-lg text-dark m-1"
@@ -33,7 +31,6 @@
           data-mdb-ripple-color="dark"
           ><i class="fab fa-google"></i
         ></a>
-
         <!-- Instagram -->
         <a
           class="btn btn-link btn-floating btn-lg text-dark m-1"
@@ -43,7 +40,6 @@
           target="_blank"
           ><i class="fab fa-instagram"></i
         ></a>
-
         <!-- Linkedin -->
         <a
           class="btn btn-link btn-floating btn-lg text-dark m-1"
@@ -62,10 +58,8 @@
           target="_blank"
           ><i class="fab fa-github"></i
         ></a>
-
         <p id="scritta">© 2021 Copyright Project for Smart Contact</p>
       </section>
-
       <!-- Section: Social media -->
     </div>
     <!-- Grid container -->

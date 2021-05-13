@@ -1865,8 +1865,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 
 
 
@@ -1894,6 +1892,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -41980,14 +41987,14 @@ var render = function() {
               _c("div", { staticClass: "mr-5" }, [
                 _c("p", [
                   _vm._v(
-                    " Attualmente nel nostro database sono stati registrati: "
+                    "\n              Attualmente nel nostro database sono stati registrati: "
                   ),
                   _c("br"),
                   _vm._v(" "),
                   _c("b", { attrs: { id: "grandezza" } }, [
                     _vm._v(_vm._s(_vm.users.data.length))
                   ]),
-                  _vm._v(" utenti ")
+                  _vm._v(" utenti\n            ")
                 ])
               ])
             ]),
@@ -42005,14 +42012,16 @@ var render = function() {
             _c("div", { staticClass: "mr-5" }, [
               _c("p", [
                 _vm._v(
-                  " Attualmente nel nostro database sono stati registrati: "
+                  "\n              Attualmente nel nostro database sono stati registrati: "
                 ),
                 _c("br"),
                 _vm._v(" "),
                 _c("b", { attrs: { id: "grandezza" } }, [
                   _vm._v(_vm._s(_vm.roles.data.length))
                 ]),
-                _vm._v(" ruoli con relativi permessi ")
+                _vm._v(
+                  " ruoli con relativi\n              permessi\n            "
+                )
               ])
             ])
           ]),
@@ -42054,7 +42063,7 @@ var staticRenderFns = [
               _c("div", { staticClass: "mr-5" }, [
                 _c("p", [
                   _vm._v(
-                    " L'utente amministratore di questa web application è registrato\n           con il nome di:  "
+                    "\n              L'utente amministratore di questa web application è registrato\n              con il nome di: "
                   ),
                   _c("b", { attrs: { id: "grandezza" } }, [
                     _vm._v('"SuperUser"')
@@ -42079,7 +42088,7 @@ var staticRenderFns = [
               _c("div", { staticClass: "mr-5" }, [
                 _c("p", [
                   _vm._v(
-                    " L'utente amministratore è registrato\n           con la seguente email:  "
+                    "\n              L'utente amministratore è registrato con la seguente email:\n              "
                   ),
                   _c("b", { attrs: { id: "grandezza" } }, [
                     _vm._v('"admin@admin.it"')

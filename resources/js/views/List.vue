@@ -1,8 +1,6 @@
 <template>
   <div class="container">
     <div class="row justify-content-center">
-    
-
       <div class="col-md-12">
         <div class="card border shadow">
           <div class="card-header">Lista Ruoli:</div>
@@ -16,10 +14,10 @@
                 </tr>
               </thead>
               <tbody>
-              <tr v-for="(role, index) in roles.data" :key="role.id">
+                <tr v-for="(role, index) in roles.data" :key="role.id">
                   <th scope="row">{{ index + 1 }}</th>
                   <td>{{ role.permessi }}</td>
-                  <td>{{ role.descrizione }}</td>            
+                  <td>{{ role.descrizione }}</td>
                 </tr>
               </tbody>
             </table>
@@ -50,7 +48,6 @@ export default {
     this.getRoles();
   },
   methods: {
-
     getRoles(page = 1) {
       axios.get("all_permissions?page=" + page).then((response) => {
         console.log(response.data);

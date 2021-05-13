@@ -10,7 +10,6 @@ class RoleController extends Controller
 {
     public function save_role()
     {
-        
         $role = new Role;
         $role->nome = request()->nome;
         $role->permessi = request()->permessi;
@@ -45,7 +44,6 @@ class RoleController extends Controller
     public function delete_role($id)
     {
         $role = Role::find($id)->delete();
-        
     }
 
     public function all_permissions()
@@ -53,6 +51,4 @@ class RoleController extends Controller
         $roles = Role::paginate(10);
         return response()->json($roles);
     }
-
 }
-

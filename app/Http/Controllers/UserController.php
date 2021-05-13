@@ -44,6 +44,5 @@ class UserController extends Controller
     public function delete_user($id)
     {
         $user = User::find($id)->delete();
-        
     }
 }

@@ -4,7 +4,6 @@
       <div class="col-md-6">
         <div class="card border shadow">
           <div class="card-header">Registrati :</div>
-
           <div class="card-body">
             <form>
               <div class="form-group">
@@ -12,7 +11,8 @@
                 <input
                   type="text"
                   class="form-control"
-                  v-model="name" required
+                  v-model="name"
+                  required
                   id="exampleInputEmail1"
                   aria-describedby="emailHelp"
                   placeholder="Inserisci un nome per il tuo account"
@@ -23,7 +23,8 @@
                 <input
                   type="text"
                   class="form-control"
-                  v-model="email" required
+                  v-model="email"
+                  required
                   id="exampleInputPassword1"
                   placeholder="Inserisci la tua email"
                 />
@@ -33,21 +34,24 @@
                 <input
                   type="text"
                   class="form-control"
-                  v-model="password" required
+                  v-model="password"
+                  required
                   id="exampleInputPassword1"
                   placeholder="Inserisci la tua Password"
                 />
               </div>
-
               <button
                 type="submit"
-                  :disabled="!name ||!email || !password"
+                :disabled="!name || !email || !password"
                 @click.prevent="saveUser"
                 class="btn btn-outline-success"
               >
                 Registrati
               </button>
-              <p>* Se non riesci ad andare avanti, il tuo nome o la tua email esistono già</p>
+              <p>
+                * Se non riesci ad andare avanti, il tuo nome o la tua email
+                esistono già
+              </p>
             </form>
           </div>
         </div>
@@ -78,11 +82,11 @@ export default {
           password: this.password,
         })
         .then((response) => {
-           this.$fire({  
+          this.$fire({
             text: "Registazione completata!",
             type: "success",
             timer: 1500,
-          })
+          });
           Router.push({ name: "login" });
         });
     },

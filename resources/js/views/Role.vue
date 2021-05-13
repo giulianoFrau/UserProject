@@ -4,7 +4,6 @@
       <div class="col-md-6">
         <div class="card border shadow">
           <div class="card-header">Inserisci un nuovo Ruolo :</div>
-
           <div class="card-body">
             <form>
               <div class="form-group">
@@ -43,7 +42,6 @@
                   placeholder="Inserisci la  descrizione ruolo"
                 />
               </div>
-
               <button
                 type="submit"
                 :disabled="!nome || !permessi || !descrizione"
@@ -58,7 +56,6 @@
       </div>
     </div>
     <br />
-
     <div class="col-md-12">
       <div class="card border shadow">
         <div class="card-header">Lista Ruoli:</div>
@@ -77,7 +74,6 @@
                 <th scope="row">{{ index + 1 }}</th>
                 <td>{{ role.nome }}</td>
                 <td>{{ role.permessi }}</td>
-
                 <td>
                   <button
                     type="button"
@@ -89,7 +85,6 @@
                     Modifica
                   </button>
                 </td>
-
                 <td>
                   <button
                     type="button"
@@ -109,8 +104,6 @@
         </div>
       </div>
     </div>
-
-    <!-- Modal -->
     <div
       class="modal fade"
       id="exampleModal"
@@ -155,7 +148,6 @@
                   placeholder="Modifica permessi"
                 />
               </div>
-
               <button
                 type="submit"
                 @click.prevent="updateRole"
@@ -209,11 +201,11 @@ export default {
           this.nome = "";
           this.permessi = "";
           this.descrizione = "";
-          this.$fire({  
+          this.$fire({
             text: "Ruolo registrato con successo!",
             type: "success",
             timer: 2500,
-          })
+          });
           this.getRoles();
         });
     },
@@ -223,7 +215,6 @@ export default {
         this.roles = response.data;
       });
     },
-
     editRole(id) {
       axios.get("edit_role/" + id).then((response) => {
         this.id = response.data.id;
@@ -231,7 +222,6 @@ export default {
         this.editpermessi = response.data.permessi;
       });
     },
-
     updateRole() {
       axios
         .put("update_role", {
@@ -240,23 +230,22 @@ export default {
           permessi: this.editpermessi,
         })
         .then((response) => {
-            this.$fire({  
+          this.$fire({
             text: "Modifica effettuata!",
             type: "warning",
             timer: 1000,
-          })
+          });
           this.getRoles();
         });
     },
-
     deleteRole(id) {
       axios.delete("delete_role/" + id).then((response) => {
         this.getRoles();
-        this.$fire({  
-            text: "Ruolo cancellato!",
-            type: "error",
-            timer: 2500,
-          })
+        this.$fire({
+          text: "Ruolo cancellato!",
+          type: "error",
+          timer: 2500,
+        });
       });
     },
   },

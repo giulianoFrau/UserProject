@@ -1,13 +1,11 @@
 <template>
   <div class="container">
     <br />
-
     <div class="col-md-12">
       <div class="card border shadow">
         <div class="card-header">
           Benvenuto! Ecco quello che puoi vedere con i tuoi permessi:
         </div>
-
         <div class="card-body">
           <table class="table table-dark">
             <thead>
@@ -29,16 +27,13 @@
             :data="users"
             @pagination-change-page="getResults"
           ></pagination>
-             
-              <button
-              
-                type="submit"
-              
-                @click.prevent="logout"
-                class="btn btn-outline-danger"
-              >
-                Logout
-              </button>
+          <button
+            type="submit"
+            @click.prevent="logout"
+            class="btn btn-outline-danger"
+          >
+            Logout
+          </button>
         </div>
       </div>
     </div>
@@ -46,7 +41,7 @@
 </template>
 
 <script>
-import Router from './router';
+import Router from "./router";
 export default {
   data() {
     return {
@@ -60,16 +55,11 @@ export default {
     this.getResults();
   },
   methods: {
-
-logout(){
- 
-    this.$confirm("Sei sicuro di voler uscire?").then(() => {
-   Router.push({ name: "login" });
-})
-           
- 
+    logout() {
+      this.$confirm("Sei sicuro di voler uscire?").then(() => {
+        Router.push({ name: "login" });
+      });
     },
-    
     getResults(page = 1) {
       axios.get("all_users?page=" + page).then((response) => {
         console.log(response.data);
