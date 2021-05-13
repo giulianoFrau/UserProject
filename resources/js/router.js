@@ -10,31 +10,55 @@ const routes = [
         path: '/',
         name: 'welcome',
         component: Welcome,
+        meta: {
+          
+            hideHeaderUser:true,
+        }
     },
     { // new route for our categories page
         path: '/list',
         name: 'list',
         component: () => import('./views/List.vue'), // Vue we just created
+        meta: {
+          
+            hideHeaderUser:true,
+        }
     },
     { // new route for our categories page
         path: '/role',
         name: 'role',
         component: () => import('./views/Role.vue'), // Vue we just created
+        meta: {
+          
+            hideHeaderUser:true,
+        }
     },
     { // new route for our categories page
         path: '/crud',
         name: 'crud',
         component: () => import('./views/CrudApp.vue'), // Vue we just created
+        meta: {
+          
+            hideHeaderUser:true,
+        }
     },
     { // new route for our categories page
         path: '/login',
         name: 'login',
         component: () => import('./views/Login.vue'), // Vue we just created
+        meta: {
+          
+            hideHeaderUser:true,
+        }
     },
     { // new route for our categories page
         path: '/register',
         name: 'register',
         component: () => import('./views/Register.vue'), // Vue we just created
+        meta: {
+          
+            hideHeaderUser:true,
+        }
     },
     { // new route for our categories page
         path: '/userPage',
@@ -42,6 +66,7 @@ const routes = [
         component: () => import('./UserPage.vue'), // Vue we just created
         meta: {
             hideNavbar: true,
+            hideHeader:true,
         }
     },
 ];

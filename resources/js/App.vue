@@ -1,7 +1,8 @@
 <!-- App.vue -->
 <template>
   <div>
-    <Header />
+    <Header v-if="!$route.meta.hideHeader" />
+    <HeaderUser v-if="!$route.meta.hideHeaderUser" />
     <div id="wrapper">
       <Sidebar v-if="!$route.meta.hideNavbar" />
       <div id="content-wrapper">
@@ -16,12 +17,14 @@
 </template>
 
 <script>
+import HeaderUser from "./components/HeaderUser.vue";
 import Header from "./components/Header.vue";
 import Sidebar from "./components/Sidebar.vue";
 import Footer from "./components/Footer.vue";
 
 export default {
   components: {
+    HeaderUser,
     Header,
     Sidebar,
     Footer,
