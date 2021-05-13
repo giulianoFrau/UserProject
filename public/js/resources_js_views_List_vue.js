@@ -68,7 +68,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
-      axios.get("all_roles?page=" + page).then(function (response) {
+      axios.get("all_permissions?page=" + page).then(function (response) {
         console.log(response.data);
         _this.roles = response.data;
       });

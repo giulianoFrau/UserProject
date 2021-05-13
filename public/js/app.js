@@ -1866,6 +1866,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -38440,7 +38441,15 @@ var render = function() {
           _c(
             "div",
             { attrs: { id: "content-wrapper" } },
-            [_c("router-view"), _vm._v(" "), _c("Footer")],
+            [
+              _c("router-view"),
+              _vm._v(" "),
+              _c("br"),
+              _vm._v(" "),
+              _c("br"),
+              _vm._v(" "),
+              _c("Footer")
+            ],
             1
           )
         ],
@@ -38480,13 +38489,98 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("footer", { staticClass: "sticky-footer" }, [
-      _c("div", { staticClass: "container my-auto" }, [
-        _c("div", { staticClass: "copyright text-center my-auto" }, [
-          _c("span", [_vm._v("Copyright © Website for Smart Contact 2021")])
+    return _c(
+      "footer",
+      {
+        staticClass: "foot text-center text-white",
+        staticStyle: { "background-color": "#A8A8A8" }
+      },
+      [
+        _c("div", { staticClass: "container pt-4" }, [
+          _c("section", { staticClass: "mb-1" }, [
+            _c(
+              "a",
+              {
+                staticClass: "btn btn-link btn-floating btn-lg text-dark m-1",
+                attrs: {
+                  href: "#!",
+                  role: "button",
+                  "data-mdb-ripple-color": "dark"
+                }
+              },
+              [_c("i", { staticClass: "fab fa-facebook-f" })]
+            ),
+            _vm._v(" "),
+            _c(
+              "a",
+              {
+                staticClass: "btn btn-link btn-floating btn-lg text-dark m-1",
+                attrs: {
+                  href: "#!",
+                  role: "button",
+                  "data-mdb-ripple-color": "dark"
+                }
+              },
+              [_c("i", { staticClass: "fab fa-twitter" })]
+            ),
+            _vm._v(" "),
+            _c(
+              "a",
+              {
+                staticClass: "btn btn-link btn-floating btn-lg text-dark m-1",
+                attrs: {
+                  href: "#!",
+                  role: "button",
+                  "data-mdb-ripple-color": "dark"
+                }
+              },
+              [_c("i", { staticClass: "fab fa-google" })]
+            ),
+            _vm._v(" "),
+            _c(
+              "a",
+              {
+                staticClass: "btn btn-link btn-floating btn-lg text-dark m-1",
+                attrs: {
+                  href: "#!",
+                  role: "button",
+                  "data-mdb-ripple-color": "dark"
+                }
+              },
+              [_c("i", { staticClass: "fab fa-instagram" })]
+            ),
+            _vm._v(" "),
+            _c(
+              "a",
+              {
+                staticClass: "btn btn-link btn-floating btn-lg text-dark m-1",
+                attrs: {
+                  href: "#!",
+                  role: "button",
+                  "data-mdb-ripple-color": "dark"
+                }
+              },
+              [_c("i", { staticClass: "fab fa-linkedin" })]
+            ),
+            _vm._v(" "),
+            _c(
+              "a",
+              {
+                staticClass: "btn btn-link btn-floating btn-lg text-dark m-1",
+                attrs: {
+                  href: "#!",
+                  role: "button",
+                  "data-mdb-ripple-color": "dark"
+                }
+              },
+              [_c("i", { staticClass: "fab fa-github" })]
+            ),
+            _vm._v(" "),
+            _c("p", [_vm._v("© 2021 Copyright Project for Smart Contact")])
+          ])
         ])
-      ])
-    ])
+      ]
+    )
   }
 ]
 render._withStripped = true

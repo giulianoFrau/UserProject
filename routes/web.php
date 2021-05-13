@@ -35,6 +35,7 @@ Route::delete('delete_user/{id}', [UserController::class, 'delete_user']);
 //crud role
 Route::post('save_role', [RoleController::class, 'save_role']);
 Route::get('all_roles', [RoleController::class, 'all_roles']);
+Route::get('all_permissions', [RoleController::class, 'all_permissions']);
 Route::get('edit_role/{id}', [RoleController::class, 'edit_role']);
 Route::put('update_role', [RoleController::class, 'update_role']);
 Route::delete('delete_role/{id}', [RoleController::class, 'delete_role']);

@@ -9,7 +9,8 @@
 
 			<div id="content-wrapper">
 				<router-view></router-view> <!-- container-fluid div Replaced by router-view -->
-
+<br>
+<br>
 				<Footer />
 			</div>
 		</div>

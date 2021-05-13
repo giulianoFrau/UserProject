@@ -54,7 +54,7 @@ export default {
   methods: {
 
     getRoles(page = 1) {
-      axios.get("all_roles?page=" + page).then((response) => {
+      axios.get("all_permissions?page=" + page).then((response) => {
         console.log(response.data);
         this.roles = response.data;
       });

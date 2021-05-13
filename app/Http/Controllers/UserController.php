@@ -20,7 +20,7 @@ class UserController extends Controller
 
     public function all_users()
     {
-        $users = User::paginate(4);
+        $users = User::paginate(2);
         return response()->json($users);
     }
 

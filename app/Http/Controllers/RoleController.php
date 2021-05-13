@@ -21,7 +21,7 @@ class RoleController extends Controller
 
     public function all_roles()
     {
-        $roles = Role::paginate(10);
+        $roles = Role::paginate(2);
         return response()->json($roles);
     }
 
@@ -46,5 +46,12 @@ class RoleController extends Controller
         $role = Role::find($id)->delete();
         
     }
+
+    public function all_permissions()
+    {
+        $roles = Role::paginate(10);
+        return response()->json($roles);
+    }
+
 }
 
