@@ -32,10 +32,7 @@
               
                 type="submit"
                 :disabled="!email || !password"
-              
-               
-                
-                      @click.prevent="login"
+                @click.prevent="login"
                 class="btn btn-outline-success"
               >
                 Login

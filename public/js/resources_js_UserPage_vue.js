@@ -11,6 +11,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var _router__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./router */ "./resources/js/router.js");
 //
 //
 //
@@ -51,6 +52,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -64,6 +73,13 @@ __webpack_require__.r(__webpack_exports__);
     this.getResults();
   },
   methods: {
+    logout: function logout() {
+      this.$confirm("Sei sicuro di voler uscire?").then(function () {
+        _router__WEBPACK_IMPORTED_MODULE_0__.default.push({
+          name: "login"
+        });
+      });
+    },
     getResults: function getResults() {
       var _this = this;
 
@@ -206,7 +222,20 @@ var render = function() {
               on: { "pagination-change-page": _vm.getResults }
             }),
             _vm._v(" "),
-            _vm._m(1)
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-outline-danger",
+                attrs: { type: "submit" },
+                on: {
+                  click: function($event) {
+                    $event.preventDefault()
+                    return _vm.logout($event)
+                  }
+                }
+              },
+              [_vm._v("\n              Logout\n            ")]
+            )
           ],
           1
         )
@@ -227,17 +256,6 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Email")])
       ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("a", { attrs: { href: "#/login" } }, [
-      _c("input", {
-        staticClass: "btn btn-outline-danger",
-        attrs: { type: "button", value: "Logout" }
-      })
     ])
   }
 ]

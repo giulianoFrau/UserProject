@@ -29,9 +29,16 @@
             :data="users"
             @pagination-change-page="getResults"
           ></pagination>
-          <a href="#/login">
-            <input type="button" value="Logout" class="btn btn-outline-danger" />
-          </a>
+             
+              <button
+              
+                type="submit"
+              
+                @click.prevent="logout"
+                class="btn btn-outline-danger"
+              >
+                Logout
+              </button>
         </div>
       </div>
     </div>
@@ -39,6 +46,7 @@
 </template>
 
 <script>
+import Router from './router';
 export default {
   data() {
     return {
@@ -52,6 +60,16 @@ export default {
     this.getResults();
   },
   methods: {
+
+logout(){
+ 
+    this.$confirm("Sei sicuro di voler uscire?").then(() => {
+   Router.push({ name: "login" });
+})
+           
+ 
+    },
+    
     getResults(page = 1) {
       axios.get("all_users?page=" + page).then((response) => {
         console.log(response.data);
