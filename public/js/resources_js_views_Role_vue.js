@@ -191,6 +191,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -218,6 +220,7 @@ __webpack_require__.r(__webpack_exports__);
         _this.nome = "";
         _this.permessi = "";
         _this.descrizione = "";
+        alert("Ruolo inserito con successo");
 
         _this.getRoles();
       });
@@ -256,6 +259,8 @@ __webpack_require__.r(__webpack_exports__);
 
       axios["delete"]("delete_role/" + id).then(function (response) {
         _this5.getRoles();
+
+        alert('Ruolo Cancellato');
       });
     }
   }
@@ -378,6 +383,7 @@ var render = function() {
                   staticClass: "form-control",
                   attrs: {
                     type: "text",
+                    required: "",
                     id: "nome",
                     "aria-describedby": "emailHelp",
                     placeholder: "Inserisci il nome del ruolo"
@@ -411,6 +417,7 @@ var render = function() {
                   staticClass: "form-control",
                   attrs: {
                     type: "text",
+                    required: "",
                     id: "permessi",
                     "aria-describedby": "emailHelp",
                     placeholder: "Inserisci il permesso"
@@ -444,6 +451,7 @@ var render = function() {
                   staticClass: "form-control",
                   attrs: {
                     type: "text",
+                    required: "",
                     id: "descrizione",
                     "aria-describedby": "emailHelp",
                     placeholder: "Inserisci la  descrizione ruolo"
@@ -464,7 +472,10 @@ var render = function() {
                 "button",
                 {
                   staticClass: "btn btn-outline-success",
-                  attrs: { type: "submit" },
+                  attrs: {
+                    type: "submit",
+                    disabled: !_vm.nome || !_vm.permessi || !_vm.descrizione
+                  },
                   on: {
                     click: function($event) {
                       $event.preventDefault()

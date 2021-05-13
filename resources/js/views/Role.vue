@@ -12,7 +12,7 @@
                 <input
                   type="text"
                   class="form-control"
-                  v-model="nome"
+                  v-model="nome" required
                   id="nome"
                   aria-describedby="emailHelp"
                   placeholder="Inserisci il nome del ruolo"
@@ -23,7 +23,7 @@
                 <input
                   type="text"
                   class="form-control"
-                  v-model="permessi"
+                  v-model="permessi" required
                   id="permessi"
                   aria-describedby="emailHelp"
                   placeholder="Inserisci il permesso"
@@ -34,7 +34,7 @@
                 <input
                   type="text"
                   class="form-control"
-                  v-model="descrizione"
+                  v-model="descrizione" required
                   id="descrizione"
                   aria-describedby="emailHelp"
                   placeholder="Inserisci la  descrizione ruolo"
@@ -43,6 +43,7 @@
 
               <button
                 type="submit"
+                 :disabled="!nome ||!permessi || !descrizione"
                 @click.prevent="saveRole"
                 class="btn btn-outline-success"
               >
@@ -105,6 +106,7 @@
           </div>
         </div>
       </div>
+   
 
 
     <!-- Modal -->
@@ -206,6 +208,7 @@ export default {
           this.nome = "";
           this.permessi = "";
           this.descrizione = "";
+          alert("Ruolo inserito con successo")
           this.getRoles();
         });
     },
@@ -241,6 +244,7 @@ export default {
     deleteRole(id) {
       axios.delete("delete_role/" + id).then((response) => {
         this.getRoles();
+          alert('Ruolo Cancellato');
       });
     },
   },

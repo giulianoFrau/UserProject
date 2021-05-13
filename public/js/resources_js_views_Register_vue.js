@@ -69,6 +69,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
@@ -211,6 +212,7 @@ var render = function() {
                   staticClass: "form-control",
                   attrs: {
                     type: "text",
+                    required: "",
                     id: "exampleInputEmail1",
                     "aria-describedby": "emailHelp",
                     placeholder: "Inserisci un nome per il tuo account"
@@ -244,6 +246,7 @@ var render = function() {
                   staticClass: "form-control",
                   attrs: {
                     type: "text",
+                    required: "",
                     id: "exampleInputPassword1",
                     placeholder: "Inserisci la tua email"
                   },
@@ -276,6 +279,7 @@ var render = function() {
                   staticClass: "form-control",
                   attrs: {
                     type: "text",
+                    required: "",
                     id: "exampleInputPassword1",
                     placeholder: "Inserisci la tua Password"
                   },
@@ -295,7 +299,10 @@ var render = function() {
                 "button",
                 {
                   staticClass: "btn btn-outline-success",
-                  attrs: { type: "submit" },
+                  attrs: {
+                    type: "submit",
+                    disabled: !_vm.name || !_vm.email || !_vm.password
+                  },
                   on: {
                     click: function($event) {
                       $event.preventDefault()

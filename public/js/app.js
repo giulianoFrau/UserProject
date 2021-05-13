@@ -38503,9 +38503,10 @@ var staticRenderFns = [
               {
                 staticClass: "btn btn-link btn-floating btn-lg text-dark m-1",
                 attrs: {
-                  href: "#!",
+                  href: "https://www.facebook.com/LaravelCommunity",
                   role: "button",
-                  "data-mdb-ripple-color": "dark"
+                  "data-mdb-ripple-color": "dark",
+                  target: "_blank"
                 }
               },
               [_c("i", { staticClass: "fab fa-facebook-f" })]
@@ -38516,8 +38517,9 @@ var staticRenderFns = [
               {
                 staticClass: "btn btn-link btn-floating btn-lg text-dark m-1",
                 attrs: {
-                  href: "#!",
+                  href: "https://twitter.com/laravelphp",
                   role: "button",
+                  target: "_blank",
                   "data-mdb-ripple-color": "dark"
                 }
               },
@@ -38529,7 +38531,8 @@ var staticRenderFns = [
               {
                 staticClass: "btn btn-link btn-floating btn-lg text-dark m-1",
                 attrs: {
-                  href: "#!",
+                  href: "https://www.google.it/",
+                  target: "_blank",
                   role: "button",
                   "data-mdb-ripple-color": "dark"
                 }
@@ -38542,9 +38545,10 @@ var staticRenderFns = [
               {
                 staticClass: "btn btn-link btn-floating btn-lg text-dark m-1",
                 attrs: {
-                  href: "#!",
+                  href: "https://www.instagram.com/laravelnews/",
                   role: "button",
-                  "data-mdb-ripple-color": "dark"
+                  "data-mdb-ripple-color": "dark",
+                  target: "_blank"
                 }
               },
               [_c("i", { staticClass: "fab fa-instagram" })]
@@ -38555,9 +38559,10 @@ var staticRenderFns = [
               {
                 staticClass: "btn btn-link btn-floating btn-lg text-dark m-1",
                 attrs: {
-                  href: "#!",
+                  href: "https:/www.linkedin.com/in/giuliano-frau-8728a61bb",
                   role: "button",
-                  "data-mdb-ripple-color": "dark"
+                  "data-mdb-ripple-color": "dark",
+                  target: "_blank"
                 }
               },
               [_c("i", { staticClass: "fab fa-linkedin" })]
@@ -38568,9 +38573,10 @@ var staticRenderFns = [
               {
                 staticClass: "btn btn-link btn-floating btn-lg text-dark m-1",
                 attrs: {
-                  href: "#!",
+                  href: "https://github.com/giulianoFrau/UserProject",
                   role: "button",
-                  "data-mdb-ripple-color": "dark"
+                  "data-mdb-ripple-color": "dark",
+                  target: "_blank"
                 }
               },
               [_c("i", { staticClass: "fab fa-github" })]

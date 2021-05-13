@@ -12,7 +12,7 @@
                 <input
                   type="text"
                   class="form-control"
-                  v-model="name"
+                  v-model="name" required
                   id="exampleInputEmail1"
                   aria-describedby="emailHelp"
                   placeholder="Inserisci un nome per il tuo account"
@@ -23,7 +23,7 @@
                 <input
                   type="text"
                   class="form-control"
-                  v-model="email"
+                  v-model="email" required
                   id="exampleInputPassword1"
                   placeholder="Inserisci la tua email"
                 />
@@ -33,7 +33,7 @@
                 <input
                   type="text"
                   class="form-control"
-                  v-model="password"
+                  v-model="password" required
                   id="exampleInputPassword1"
                   placeholder="Inserisci la tua Password"
                 />
@@ -41,6 +41,7 @@
 
               <button
                 type="submit"
+                  :disabled="!name ||!email || !password"
                 @click.prevent="saveUser"
                 class="btn btn-outline-success"
               >

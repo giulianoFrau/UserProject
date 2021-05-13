@@ -12,7 +12,7 @@
                 <input
                   type="text"
                   class="form-control"
-                  v-model="email"
+                  v-model="email" required
                   id="exampleInputEmail1"
                   aria-describedby="emailHelp"
                   placeholder="Inserisci la tua email"
@@ -23,13 +23,18 @@
                 <input
                   type="text"
                   class="form-control"
-                  v-model="password"
+                  v-model="password" required
                   id="exampleInputPassword1"
                   placeholder="Inserisci la tua password"
                 />
               </div>
               <button
+              
                 type="submit"
+                :disabled="!email || !password"
+              
+               
+                
                       @click.prevent="login"
                 class="btn btn-outline-success"
               >

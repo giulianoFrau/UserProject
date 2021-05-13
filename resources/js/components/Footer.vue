@@ -1,69 +1,73 @@
 <!-- Footer.vue -->
 <template>
-   <footer class="foot text-center text-white" style="background-color:#e9ecef;">
-       <div class="container pt-4">
-    <!-- Section: Social media -->
-    <section class="mb-1">
-      <!-- Facebook -->
-      <a
-        class="btn btn-link btn-floating btn-lg text-dark m-1"
-        href="#!"
-        role="button"
-        data-mdb-ripple-color="dark"
-        ><i class="fab fa-facebook-f"></i
-      ></a>
+  <footer class="foot text-center text-white" style="background-color: #e9ecef">
+    <div class="container pt-4">
+      <!-- Section: Social media -->
+      <section class="mb-1">
+        <!-- Facebook -->
+        <a
+          class="btn btn-link btn-floating btn-lg text-dark m-1"
+          href="https://www.facebook.com/LaravelCommunity"
+          role="button"
+          data-mdb-ripple-color="dark"
+          target="_blank"
+          ><i class="fab fa-facebook-f"></i
+        ></a>
 
-      <!-- Twitter -->
-      <a
-        class="btn btn-link btn-floating btn-lg text-dark m-1"
-        href="#!"
-        role="button"
-        data-mdb-ripple-color="dark"
-        ><i class="fab fa-twitter"></i
-      ></a>
+        <!-- Twitter -->
+        <a
+          class="btn btn-link btn-floating btn-lg text-dark m-1"
+          href="https://twitter.com/laravelphp"
+          role="button"
+          target="_blank"
+          data-mdb-ripple-color="dark"
+          ><i class="fab fa-twitter"></i
+        ></a>
 
-      <!-- Google -->
-      <a
-        class="btn btn-link btn-floating btn-lg text-dark m-1"
-        href="#!"
-        role="button"
-        data-mdb-ripple-color="dark"
-        ><i class="fab fa-google"></i
-      ></a>
+        <!-- Google -->
+        <a
+          class="btn btn-link btn-floating btn-lg text-dark m-1"
+          href="https://www.google.it/"
+          target="_blank"
+          role="button"
+          data-mdb-ripple-color="dark"
+          ><i class="fab fa-google"></i
+        ></a>
 
-      <!-- Instagram -->
-      <a
-        class="btn btn-link btn-floating btn-lg text-dark m-1"
-        href="#!"
-        role="button"
-        data-mdb-ripple-color="dark"
-        ><i class="fab fa-instagram"></i
-      ></a>
+        <!-- Instagram -->
+        <a
+          class="btn btn-link btn-floating btn-lg text-dark m-1"
+          href="https://www.instagram.com/laravelnews/"
+          role="button"
+          data-mdb-ripple-color="dark"
+          target="_blank"
+          ><i class="fab fa-instagram"></i
+        ></a>
 
-      <!-- Linkedin -->
-      <a
-        class="btn btn-link btn-floating btn-lg text-dark m-1"
-        href="#!"
-        role="button"
-        data-mdb-ripple-color="dark"
-        ><i class="fab fa-linkedin"></i
-      ></a>
-      <!-- Github -->
-      <a
-        class="btn btn-link btn-floating btn-lg text-dark m-1"
-        href="#!"
-        role="button"
-        data-mdb-ripple-color="dark"
-        ><i class="fab fa-github"></i
-      ></a>
-  
+        <!-- Linkedin -->
+        <a
+          class="btn btn-link btn-floating btn-lg text-dark m-1"
+          href="https:/www.linkedin.com/in/giuliano-frau-8728a61bb"
+          role="button"
+          data-mdb-ripple-color="dark"
+          target="_blank"
+          ><i class="fab fa-linkedin"></i
+        ></a>
+        <!-- Github -->
+        <a
+          class="btn btn-link btn-floating btn-lg text-dark m-1"
+          href="https://github.com/giulianoFrau/UserProject"
+          role="button"
+          data-mdb-ripple-color="dark"
+          target="_blank"
+          ><i class="fab fa-github"></i
+        ></a>
 
-      <p id="scritta">© 2021 Copyright Project for Smart Contact</p>
-    </section>
-  
-    <!-- Section: Social media -->
-  </div>
-  <!-- Grid container -->
-        
-    </footer>
+        <p id="scritta">© 2021 Copyright Project for Smart Contact</p>
+      </section>
+
+      <!-- Section: Social media -->
+    </div>
+    <!-- Grid container -->
+  </footer>
 </template>
