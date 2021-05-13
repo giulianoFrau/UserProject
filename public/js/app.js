@@ -1982,7 +1982,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -41961,36 +41960,66 @@ var render = function() {
   return _c("div", { staticClass: "container-fluid" }, [
     _vm._m(0),
     _vm._v(" "),
+    _c("br"),
+    _vm._v(" "),
+    _c("br"),
+    _vm._v(" "),
+    _vm._m(1),
+    _vm._v(" "),
+    _vm._m(2),
+    _vm._v(" "),
     _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-xl-3 col-sm-6 mb-3" }, [
+      _c("div", { staticClass: "col-xl-6 col-sm-12 mb-1" }, [
         _c(
           "div",
-          { staticClass: "card text-white bg-primary o-hidden h-100" },
+          { staticClass: "card text-white bg-success o-hidden h-100" },
           [
             _c("div", { staticClass: "card-body" }, [
-              _vm._m(1),
+              _vm._m(3),
               _vm._v(" "),
               _c("div", { staticClass: "mr-5" }, [
                 _c("p", [
                   _vm._v(
-                    _vm._s(_vm.roles.data.length) +
-                      " e " +
-                      _vm._s(_vm.users.data.length)
-                  )
+                    " Attualmente nel nostro database sono stati registrati: "
+                  ),
+                  _c("br"),
+                  _vm._v(" "),
+                  _c("b", { attrs: { id: "grandezza" } }, [
+                    _vm._v(_vm._s(_vm.users.data.length))
+                  ]),
+                  _vm._v(" utenti ")
                 ])
               ])
             ]),
             _vm._v(" "),
-            _vm._m(2)
+            _vm._m(4)
           ]
         )
       ]),
       _vm._v(" "),
-      _vm._m(3),
-      _vm._v(" "),
-      _vm._m(4),
-      _vm._v(" "),
-      _vm._m(5)
+      _c("div", { staticClass: "col-xl-6 col-sm-12 mb-1" }, [
+        _c("div", { staticClass: "card text-white bg-danger o-hidden h-100" }, [
+          _c("div", { staticClass: "card-body" }, [
+            _vm._m(5),
+            _vm._v(" "),
+            _c("div", { staticClass: "mr-5" }, [
+              _c("p", [
+                _vm._v(
+                  " Attualmente nel nostro database sono stati registrati: "
+                ),
+                _c("br"),
+                _vm._v(" "),
+                _c("b", { attrs: { id: "grandezza" } }, [
+                  _vm._v(_vm._s(_vm.roles.data.length))
+                ]),
+                _vm._v(" ruoli con relativi permessi ")
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _vm._m(6)
+        ])
+      ])
     ])
   ])
 }
@@ -42011,8 +42040,78 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-xl-6 col-sm-12 mb-1" }, [
+        _c(
+          "div",
+          { staticClass: "card text-white bg-primary o-hidden h-100" },
+          [
+            _c("div", { staticClass: "card-body" }, [
+              _c("div", { staticClass: "card-body-icon" }, [
+                _c("i", { staticClass: "fas fa-user-shield" })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "mr-5" }, [
+                _c("p", [
+                  _vm._v(
+                    " L'utente amministratore di questa web application è registrato\n           con il nome di:  "
+                  ),
+                  _c("b", { attrs: { id: "grandezza" } }, [
+                    _vm._v('"SuperUser"')
+                  ])
+                ])
+              ])
+            ])
+          ]
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-xl-6 col-sm-12 mb-1" }, [
+        _c(
+          "div",
+          { staticClass: "card text-white bg-secondary o-hidden h-100" },
+          [
+            _c("div", { staticClass: "card-body" }, [
+              _c("div", { staticClass: "card-body-icon" }, [
+                _c("i", { staticClass: "fas fa-envelope" })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "mr-5" }, [
+                _c("p", [
+                  _vm._v(
+                    " L'utente amministratore è registrato\n           con la seguente email:  "
+                  ),
+                  _c("b", { attrs: { id: "grandezza" } }, [
+                    _vm._v('"admin@admin.it"')
+                  ])
+                ])
+              ])
+            ])
+          ]
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "border shadow margin" }, [
+      _c("i", [
+        _c("p", { attrs: { id: "scrittaHome" } }, [
+          _vm._v("Info "),
+          _c("b", [_vm._v("SuperUser")]),
+          _vm._v(" e informazioni generali")
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
     return _c("div", { staticClass: "card-body-icon" }, [
-      _c("i", { staticClass: "fas fa-fw fa-comments" })
+      _c("i", { staticClass: "fas fa-users" })
     ])
   },
   function() {
@@ -42023,10 +42122,10 @@ var staticRenderFns = [
       "a",
       {
         staticClass: "card-footer text-white clearfix small z-1",
-        attrs: { href: "#" }
+        attrs: { href: "#/crud" }
       },
       [
-        _c("span", { staticClass: "float-left" }, [_vm._v("View Details")]),
+        _c("span", { staticClass: "float-left" }, [_vm._v("Vedi dettagli")]),
         _vm._v(" "),
         _c("span", { staticClass: "float-right" }, [
           _c("i", { staticClass: "fas fa-angle-right" })
@@ -42038,94 +42137,28 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-xl-3 col-sm-6 mb-3" }, [
-      _c("div", { staticClass: "card text-white bg-warning o-hidden h-100" }, [
-        _c("div", { staticClass: "card-body" }, [
-          _c("div", { staticClass: "card-body-icon" }, [
-            _c("i", { staticClass: "fas fa-fw fa-list" })
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "mr-5" }, [_vm._v("11 New Tasks!")])
-        ]),
-        _vm._v(" "),
-        _c(
-          "a",
-          {
-            staticClass: "card-footer text-white clearfix small z-1",
-            attrs: { href: "#" }
-          },
-          [
-            _c("span", { staticClass: "float-left" }, [_vm._v("View Details")]),
-            _vm._v(" "),
-            _c("span", { staticClass: "float-right" }, [
-              _c("i", { staticClass: "fas fa-angle-right" })
-            ])
-          ]
-        )
-      ])
+    return _c("div", { staticClass: "card-body-icon" }, [
+      _c("i", { staticClass: "fas fa-fw fa-list" })
     ])
   },
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-xl-3 col-sm-6 mb-3" }, [
-      _c("div", { staticClass: "card text-white bg-success o-hidden h-100" }, [
-        _c("div", { staticClass: "card-body" }, [
-          _c("div", { staticClass: "card-body-icon" }, [
-            _c("i", { staticClass: "fas fa-fw fa-shopping-cart" })
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "mr-5" }, [_vm._v("123 New Orders!")])
-        ]),
+    return _c(
+      "a",
+      {
+        staticClass: "card-footer text-white clearfix small z-1",
+        attrs: { href: "#/role" }
+      },
+      [
+        _c("span", { staticClass: "float-left" }, [_vm._v("Vedi dettagli")]),
         _vm._v(" "),
-        _c(
-          "a",
-          {
-            staticClass: "card-footer text-white clearfix small z-1",
-            attrs: { href: "#" }
-          },
-          [
-            _c("span", { staticClass: "float-left" }, [_vm._v("View Details")]),
-            _vm._v(" "),
-            _c("span", { staticClass: "float-right" }, [
-              _c("i", { staticClass: "fas fa-angle-right" })
-            ])
-          ]
-        )
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-xl-3 col-sm-6 mb-3" }, [
-      _c("div", { staticClass: "card text-white bg-danger o-hidden h-100" }, [
-        _c("div", { staticClass: "card-body" }, [
-          _c("div", { staticClass: "card-body-icon" }, [
-            _c("i", { staticClass: "fas fa-fw fa-life-ring" })
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "mr-5" }, [_vm._v("13 New Tickets!")])
-        ]),
-        _vm._v(" "),
-        _c(
-          "a",
-          {
-            staticClass: "card-footer text-white clearfix small z-1",
-            attrs: { href: "#" }
-          },
-          [
-            _c("span", { staticClass: "float-left" }, [_vm._v("View Details")]),
-            _vm._v(" "),
-            _c("span", { staticClass: "float-right" }, [
-              _c("i", { staticClass: "fas fa-angle-right" })
-            ])
-          ]
-        )
-      ])
-    ])
+        _c("span", { staticClass: "float-right" }, [
+          _c("i", { staticClass: "fas fa-angle-right" })
+        ])
+      ]
+    )
   }
 ]
 render._withStripped = true
