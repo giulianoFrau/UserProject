@@ -48,12 +48,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -199,8 +193,6 @@ var render = function() {
                   0
                 )
               ]),
-              _vm._v(" "),
-              _c("p", [_vm._v(_vm._s(_vm.roles.data.length))]),
               _vm._v(" "),
               _c("pagination", {
                 attrs: { data: _vm.roles },

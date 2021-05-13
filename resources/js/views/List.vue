@@ -19,16 +19,10 @@
               <tr v-for="(role, index) in roles.data" :key="role.id">
                   <th scope="row">{{ index + 1 }}</th>
                   <td>{{ role.permessi }}</td>
-                  <td>{{ role.descrizione }}</td>
-              
-
-
-           
-            
+                  <td>{{ role.descrizione }}</td>            
                 </tr>
               </tbody>
             </table>
-             <p>{{ roles.data.length }}</p>
             <pagination
               :data="roles"
               @pagination-change-page="getRoles"
