@@ -77,6 +77,11 @@ login() {
         
       })
      .then((response) => {
+       this.$fire({  
+            text: "Accesso effettuato!",
+            type: "success",
+            timer: 1500,
+          })
        
           Router.push({ name: "userPage" });
         
