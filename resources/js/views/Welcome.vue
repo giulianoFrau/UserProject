@@ -15,7 +15,7 @@
             <div class="card-body-icon">
               <i class="fas fa-fw fa-comments"></i>
             </div>
-            <div class="mr-5">26 New Messages!</div>
+            <div class="mr-5">   <p>{{ roles.data.length }} e {{ users.data.length }}</p></div>
           </div>
           <a class="card-footer text-white clearfix small z-1" href="#">
             <span class="float-left">View Details</span>
@@ -76,3 +76,41 @@
     </div>
   </div>
 </template>
+
+
+<script>
+export default {
+  data() {
+    return {
+      roles: {},
+       users: {},
+      id: "",
+      name: "",
+      email: "",
+      password: "",
+      nome: "",
+      permessi: "",
+      descrizione: "",
+    };
+  },
+  mounted() {
+    this.getRoles();
+        this.getResults();
+  },
+  methods: {
+
+    getRoles(page = 1) {
+      axios.get("all_permissions?page=" + page).then((response) => {
+        console.log(response.data);
+        this.roles = response.data;
+      });
+    },
+     getResults(page = 1) {
+      axios.get("all_users?page=" + page).then((response) => {
+        console.log(response.data);
+        this.users = response.data;
+      });
+    },
+  },
+};
+</script>
