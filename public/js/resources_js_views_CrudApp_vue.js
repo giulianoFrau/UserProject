@@ -253,6 +253,12 @@ __webpack_require__.r(__webpack_exports__);
         name: this.editname,
         email: this.editemail
       }).then(function (response) {
+        _this4.$fire({
+          text: "Modifica effettuata!",
+          type: "warning",
+          timer: 1000
+        });
+
         _this4.getResults();
       });
     },

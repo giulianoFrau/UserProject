@@ -237,6 +237,11 @@ export default {
           email: this.editemail,
         })
         .then((response) => {
+           this.$fire({  
+            text: "Modifica effettuata!",
+            type: "warning",
+            timer: 1000,
+          })
           this.getResults();
         });
     },

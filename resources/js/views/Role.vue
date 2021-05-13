@@ -240,6 +240,11 @@ export default {
           permessi: this.editpermessi,
         })
         .then((response) => {
+            this.$fire({  
+            text: "Modifica effettuata!",
+            type: "warning",
+            timer: 1000,
+          })
           this.getRoles();
         });
     },
