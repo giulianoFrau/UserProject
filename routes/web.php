@@ -28,6 +28,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 //crud user
 Route::post('save_user', [UserController::class, 'save_user']);
 Route::get('all_users', [UserController::class, 'all_users']);
+Route::get('all_usersForHome', [UserController::class, 'all_usersForHome']);
 Route::get('edit_user/{id}', [UserController::class, 'edit_user']);
 Route::put('update_user', [UserController::class, 'update_user']);
 Route::delete('delete_user/{id}', [UserController::class, 'delete_user']);

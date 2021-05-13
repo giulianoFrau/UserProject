@@ -122,7 +122,7 @@ export default {
       });
     },
     getResults(page = 1) {
-      axios.get("all_users?page=" + page).then((response) => {
+      axios.get("all_usersForHome?page=" + page).then((response) => {
         console.log(response.data);
         this.users = response.data;
       });

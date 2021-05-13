@@ -46,9 +46,11 @@ class RoleController extends Controller
         $role = Role::find($id)->delete();
     }
 
+//metodo view lista con impaginazione a 50 (max count in home)
+
     public function all_permissions()
     {
-        $roles = Role::paginate(10);
+        $roles = Role::paginate(50);
         return response()->json($roles);
     }
 }

@@ -45,4 +45,11 @@ class UserController extends Controller
     {
         $user = User::find($id)->delete();
     }
+
+//metodo view home con impaginazione a 50 (max count in home)
+    public function all_usersForHome()
+    {
+        $users = User::paginate(50);
+        return response()->json($users);
+    }
 }

@@ -2021,7 +2021,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this2 = this;
 
       var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
-      axios.get("all_users?page=" + page).then(function (response) {
+      axios.get("all_usersForHome?page=" + page).then(function (response) {
         console.log(response.data);
         _this2.users = response.data;
       });
