@@ -38493,7 +38493,7 @@ var staticRenderFns = [
       "footer",
       {
         staticClass: "foot text-center text-white",
-        staticStyle: { "background-color": "#A8A8A8" }
+        staticStyle: { "background-color": "#e9ecef" }
       },
       [
         _c("div", { staticClass: "container pt-4" }, [
@@ -38576,7 +38576,9 @@ var staticRenderFns = [
               [_c("i", { staticClass: "fab fa-github" })]
             ),
             _vm._v(" "),
-            _c("p", [_vm._v("© 2021 Copyright Project for Smart Contact")])
+            _c("p", { attrs: { id: "scritta" } }, [
+              _vm._v("© 2021 Copyright Project for Smart Contact")
+            ])
           ])
         ])
       ]
@@ -38616,7 +38618,9 @@ var staticRenderFns = [
       "nav",
       { staticClass: "sb-topnav navbar navbar-expand navbar-dark bg-dark" },
       [
-        _c("a", { staticClass: "navbar-brand" }, [_vm._v("Benvenuto !")]),
+        _c("a", { staticClass: "navbar-brand" }, [
+          _vm._v("Pannello SuperUser")
+        ]),
         _vm._v(" "),
         _c(
           "form",
@@ -38630,7 +38634,7 @@ var staticRenderFns = [
                 staticClass: "form-control",
                 attrs: {
                   type: "text",
-                  placeholder: "Search for...",
+                  placeholder: "Cerca...",
                   "aria-label": "Search",
                   "aria-describedby": "basic-addon2"
                 }
@@ -38760,7 +38764,7 @@ var render = function() {
           "router-link",
           { staticClass: "nav-link", attrs: { to: "/login", exact: "" } },
           [
-            _c("i", { staticClass: "fas fa-fw fa-chart-area" }),
+            _c("i", { staticClass: "fas fa-sign-in-alt" }),
             _vm._v(" "),
             _c("span", [_vm._v("Login")])
           ]
@@ -38777,7 +38781,7 @@ var render = function() {
           "router-link",
           { staticClass: "nav-link", attrs: { to: "/", exact: "" } },
           [
-            _c("i", { staticClass: "fas fa-fw fa-tachometer-alt" }),
+            _c("i", { staticClass: "fas fa-house-user" }),
             _vm._v(" "),
             _c("span", [_vm._v("Homepage")])
           ]
@@ -38794,7 +38798,7 @@ var render = function() {
           "router-link",
           { staticClass: "nav-link", attrs: { to: "/crud", exact: "" } },
           [
-            _c("i", { staticClass: "fas fa-fw fa-chart-area" }),
+            _c("i", { staticClass: "fas fa-users" }),
             _vm._v(" "),
             _c("span", [_vm._v(" Utenti")])
           ]
@@ -38811,7 +38815,7 @@ var render = function() {
           "router-link",
           { staticClass: "nav-link", attrs: { to: "/role", exact: "" } },
           [
-            _c("i", { staticClass: "fas fa-fw fa-chart-area" }),
+            _c("i", { staticClass: "fas fa-users-cog" }),
             _vm._v(" "),
             _c("span", [_vm._v(" Ruoli")])
           ]
@@ -38828,7 +38832,7 @@ var render = function() {
           "router-link",
           { staticClass: "nav-link", attrs: { to: "/list", exact: "" } },
           [
-            _c("i", { staticClass: "fas fa-fw fa-chart-area" }),
+            _c("i", { staticClass: "fas fa-list" }),
             _vm._v(" "),
             _c("span", [_vm._v("Permessi")])
           ]
@@ -38861,150 +38865,153 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container-fluid" }, [
-    _c("ol", { staticClass: "breadcrumb" }, [
-      _c(
-        "li",
-        { staticClass: "breadcrumb-item" },
-        [_c("router-link", { attrs: { to: "/" } }, [_vm._v("Dashboard")])],
-        1
-      ),
-      _vm._v(" "),
-      _c("li", { staticClass: "breadcrumb-item active" }, [_vm._v("Overview")])
-    ]),
-    _vm._v(" "),
-    _vm._m(0)
-  ])
+  return _vm._m(0)
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-xl-3 col-sm-6 mb-3" }, [
-        _c(
-          "div",
-          { staticClass: "card text-white bg-primary o-hidden h-100" },
-          [
-            _c("div", { staticClass: "card-body" }, [
-              _c("div", { staticClass: "card-body-icon" }, [
-                _c("i", { staticClass: "fas fa-fw fa-comments" })
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "mr-5" }, [_vm._v("26 New Messages!")])
-            ]),
-            _vm._v(" "),
-            _c(
-              "a",
-              {
-                staticClass: "card-footer text-white clearfix small z-1",
-                attrs: { href: "#" }
-              },
-              [
-                _c("span", { staticClass: "float-left" }, [
-                  _vm._v("View Details")
-                ]),
-                _vm._v(" "),
-                _c("span", { staticClass: "float-right" }, [
-                  _c("i", { staticClass: "fas fa-angle-right" })
-                ])
-              ]
-            )
-          ]
-        )
+    return _c("div", { staticClass: "container-fluid" }, [
+      _c("ol", { staticClass: "breadcrumb" }, [
+        _c("li", { staticClass: "breadcrumb-item" }, [
+          _c("div", [_vm._v("Dashboard")])
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "breadcrumb-item active" }, [
+          _vm._v("SuperUser")
+        ])
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "col-xl-3 col-sm-6 mb-3" }, [
-        _c(
-          "div",
-          { staticClass: "card text-white bg-warning o-hidden h-100" },
-          [
-            _c("div", { staticClass: "card-body" }, [
-              _c("div", { staticClass: "card-body-icon" }, [
-                _c("i", { staticClass: "fas fa-fw fa-list" })
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "mr-5" }, [_vm._v("11 New Tasks!")])
-            ]),
-            _vm._v(" "),
-            _c(
-              "a",
-              {
-                staticClass: "card-footer text-white clearfix small z-1",
-                attrs: { href: "#" }
-              },
-              [
-                _c("span", { staticClass: "float-left" }, [
-                  _vm._v("View Details")
-                ]),
-                _vm._v(" "),
-                _c("span", { staticClass: "float-right" }, [
-                  _c("i", { staticClass: "fas fa-angle-right" })
-                ])
-              ]
-            )
-          ]
-        )
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-xl-3 col-sm-6 mb-3" }, [
-        _c(
-          "div",
-          { staticClass: "card text-white bg-success o-hidden h-100" },
-          [
-            _c("div", { staticClass: "card-body" }, [
-              _c("div", { staticClass: "card-body-icon" }, [
-                _c("i", { staticClass: "fas fa-fw fa-shopping-cart" })
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "mr-5" }, [_vm._v("123 New Orders!")])
-            ]),
-            _vm._v(" "),
-            _c(
-              "a",
-              {
-                staticClass: "card-footer text-white clearfix small z-1",
-                attrs: { href: "#" }
-              },
-              [
-                _c("span", { staticClass: "float-left" }, [
-                  _vm._v("View Details")
-                ]),
-                _vm._v(" "),
-                _c("span", { staticClass: "float-right" }, [
-                  _c("i", { staticClass: "fas fa-angle-right" })
-                ])
-              ]
-            )
-          ]
-        )
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-xl-3 col-sm-6 mb-3" }, [
-        _c("div", { staticClass: "card text-white bg-danger o-hidden h-100" }, [
-          _c("div", { staticClass: "card-body" }, [
-            _c("div", { staticClass: "card-body-icon" }, [
-              _c("i", { staticClass: "fas fa-fw fa-life-ring" })
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "mr-5" }, [_vm._v("13 New Tickets!")])
-          ]),
-          _vm._v(" "),
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-xl-3 col-sm-6 mb-3" }, [
           _c(
-            "a",
-            {
-              staticClass: "card-footer text-white clearfix small z-1",
-              attrs: { href: "#" }
-            },
+            "div",
+            { staticClass: "card text-white bg-primary o-hidden h-100" },
             [
-              _c("span", { staticClass: "float-left" }, [
-                _vm._v("View Details")
+              _c("div", { staticClass: "card-body" }, [
+                _c("div", { staticClass: "card-body-icon" }, [
+                  _c("i", { staticClass: "fas fa-fw fa-comments" })
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "mr-5" }, [_vm._v("26 New Messages!")])
               ]),
               _vm._v(" "),
-              _c("span", { staticClass: "float-right" }, [
-                _c("i", { staticClass: "fas fa-angle-right" })
-              ])
+              _c(
+                "a",
+                {
+                  staticClass: "card-footer text-white clearfix small z-1",
+                  attrs: { href: "#" }
+                },
+                [
+                  _c("span", { staticClass: "float-left" }, [
+                    _vm._v("View Details")
+                  ]),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "float-right" }, [
+                    _c("i", { staticClass: "fas fa-angle-right" })
+                  ])
+                ]
+              )
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-xl-3 col-sm-6 mb-3" }, [
+          _c(
+            "div",
+            { staticClass: "card text-white bg-warning o-hidden h-100" },
+            [
+              _c("div", { staticClass: "card-body" }, [
+                _c("div", { staticClass: "card-body-icon" }, [
+                  _c("i", { staticClass: "fas fa-fw fa-list" })
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "mr-5" }, [_vm._v("11 New Tasks!")])
+              ]),
+              _vm._v(" "),
+              _c(
+                "a",
+                {
+                  staticClass: "card-footer text-white clearfix small z-1",
+                  attrs: { href: "#" }
+                },
+                [
+                  _c("span", { staticClass: "float-left" }, [
+                    _vm._v("View Details")
+                  ]),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "float-right" }, [
+                    _c("i", { staticClass: "fas fa-angle-right" })
+                  ])
+                ]
+              )
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-xl-3 col-sm-6 mb-3" }, [
+          _c(
+            "div",
+            { staticClass: "card text-white bg-success o-hidden h-100" },
+            [
+              _c("div", { staticClass: "card-body" }, [
+                _c("div", { staticClass: "card-body-icon" }, [
+                  _c("i", { staticClass: "fas fa-fw fa-shopping-cart" })
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "mr-5" }, [_vm._v("123 New Orders!")])
+              ]),
+              _vm._v(" "),
+              _c(
+                "a",
+                {
+                  staticClass: "card-footer text-white clearfix small z-1",
+                  attrs: { href: "#" }
+                },
+                [
+                  _c("span", { staticClass: "float-left" }, [
+                    _vm._v("View Details")
+                  ]),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "float-right" }, [
+                    _c("i", { staticClass: "fas fa-angle-right" })
+                  ])
+                ]
+              )
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-xl-3 col-sm-6 mb-3" }, [
+          _c(
+            "div",
+            { staticClass: "card text-white bg-danger o-hidden h-100" },
+            [
+              _c("div", { staticClass: "card-body" }, [
+                _c("div", { staticClass: "card-body-icon" }, [
+                  _c("i", { staticClass: "fas fa-fw fa-life-ring" })
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "mr-5" }, [_vm._v("13 New Tickets!")])
+              ]),
+              _vm._v(" "),
+              _c(
+                "a",
+                {
+                  staticClass: "card-footer text-white clearfix small z-1",
+                  attrs: { href: "#" }
+                },
+                [
+                  _c("span", { staticClass: "float-left" }, [
+                    _vm._v("View Details")
+                  ]),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "float-right" }, [
+                    _c("i", { staticClass: "fas fa-angle-right" })
+                  ])
+                ]
+              )
             ]
           )
         ])

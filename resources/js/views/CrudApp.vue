@@ -44,7 +44,7 @@
                 @click.prevent="saveUser"
                 class="btn btn-outline-success"
               >
-                Registrati
+                Inserisci
               </button>
             </form>
           </div>

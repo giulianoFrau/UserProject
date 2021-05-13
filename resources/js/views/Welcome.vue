@@ -3,9 +3,9 @@
   <div class="container-fluid">
     <ol class="breadcrumb">
       <li class="breadcrumb-item">
-        <router-link to="/">Dashboard</router-link>
+        <div>Dashboard</div>
       </li>
-      <li class="breadcrumb-item active">Overview</li>
+      <li class="breadcrumb-item active">SuperUser</li>
     </ol>
 
     <div class="row">

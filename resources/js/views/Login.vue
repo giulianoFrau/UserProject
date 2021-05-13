@@ -1,11 +1,11 @@
 <template>
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-md-6">
+  <div class="container " >
+    <div class="row justify-content-center " > 
+      <div class="col-md-6 "  >
         <div class="card border shadow">
-          <div class="card-header">Login :</div>
+          <div class="card-header" >Login :</div>
 
-          <div class="card-body">
+          <div class="card-body" >
             <form @submit.prevent="handleSubmit">
               <div class="form-group">
                 <label for="exampleInputEmail1">Email</label>
@@ -39,7 +39,7 @@
               
             </form>
             <br>
-            <a href="#/register">Nuovo utente? clicca qui per registrarti</a>
+            <a href="#/register">Nuovo utente? Clicca qui per registrarti</a>
           </div>
         </div>
       </div>

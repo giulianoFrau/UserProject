@@ -370,3 +370,7 @@ a.nav-link.active {
   bottom: 0;
   width: 100%;
 }
+
+#scritta {
+  color: black;
+}

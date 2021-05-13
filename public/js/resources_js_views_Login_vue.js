@@ -181,9 +181,9 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container" }, [
-    _c("div", { staticClass: "row justify-content-center" }, [
-      _c("div", { staticClass: "col-md-6" }, [
+  return _c("div", { staticClass: "container " }, [
+    _c("div", { staticClass: "row justify-content-center " }, [
+      _c("div", { staticClass: "col-md-6 " }, [
         _c("div", { staticClass: "card border shadow" }, [
           _c("div", { staticClass: "card-header" }, [_vm._v("Login :")]),
           _vm._v(" "),
@@ -284,7 +284,7 @@ var render = function() {
             _c("br"),
             _vm._v(" "),
             _c("a", { attrs: { href: "#/register" } }, [
-              _vm._v("Nuovo utente? clicca qui per registrarti")
+              _vm._v("Nuovo utente? Clicca qui per registrarti")
             ])
           ])
         ])

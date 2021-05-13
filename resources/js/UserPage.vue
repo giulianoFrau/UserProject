@@ -30,7 +30,7 @@
             @pagination-change-page="getResults"
           ></pagination>
           <a href="#/login">
-            <input type="button" value="Logout" class="btn btn-danger" />
+            <input type="button" value="Logout" class="btn btn-outline-danger" />
           </a>
         </div>
       </div>

@@ -471,7 +471,7 @@ var render = function() {
                     }
                   }
                 },
-                [_vm._v("\n              Registrati\n            ")]
+                [_vm._v("\n              Inserisci\n            ")]
               )
             ])
           ])

@@ -1,6 +1,6 @@
 <!-- Footer.vue -->
 <template>
-   <footer class="foot text-center text-white" style="background-color:#A8A8A8;">
+   <footer class="foot text-center text-white" style="background-color:#e9ecef;">
        <div class="container pt-4">
     <!-- Section: Social media -->
     <section class="mb-1">
@@ -58,7 +58,7 @@
       ></a>
   
 
-      <p>© 2021 Copyright Project for Smart Contact</p>
+      <p id="scritta">© 2021 Copyright Project for Smart Contact</p>
     </section>
   
     <!-- Section: Social media -->

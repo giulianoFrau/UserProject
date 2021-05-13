@@ -235,7 +235,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("a", { attrs: { href: "#/login" } }, [
       _c("input", {
-        staticClass: "btn btn-danger",
+        staticClass: "btn btn-outline-danger",
         attrs: { type: "button", value: "Logout" }
       })
     ])
