@@ -21,7 +21,7 @@
               <div class="form-group">
                 <label for="exampleInputPassword1">Password</label>
                 <input
-                  type="text"
+                  type="password"
                   class="form-control"
                   v-model="password"
                   required
