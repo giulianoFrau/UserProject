@@ -255,7 +255,7 @@ var render = function() {
                     ],
                     staticClass: "form-control",
                     attrs: {
-                      type: "text",
+                      type: "password",
                       required: "",
                       id: "exampleInputPassword1",
                       placeholder: "Inserisci la tua password"

@@ -41755,7 +41755,7 @@ var staticRenderFns = [
             ),
             _vm._v(" "),
             _c("p", { attrs: { id: "scritta" } }, [
-              _vm._v("© 2021 Copyright Project for Smart Contact")
+              _vm._v("© 2021 Copyright Personal Project")
             ])
           ])
         ])

@@ -58,7 +58,7 @@
           target="_blank"
           ><i class="fab fa-github"></i
         ></a>
-        <p id="scritta">© 2021 Copyright Project for Smart Contact</p>
+        <p id="scritta">© 2021 Copyright Personal Project</p>
       </section>
       <!-- Section: Social media -->
     </div>
